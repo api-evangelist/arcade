@@ -1,0 +1,71 @@
+{
+  "operation": "plugins-create",
+  "method": "POST",
+  "path": "/v1/plugins",
+  "summary": "Create a Plugin",
+  "request": {
+    "description": "string",
+    "name": "string",
+    "plugin_type": "webhook",
+    "retry": {
+      "backoff": "fixed",
+      "base_delay_ms": 1,
+      "enabled": true,
+      "max_attempts": 1,
+      "retry_on": []
+    },
+    "status": "active",
+    "webhook_config": {
+      "auth": null,
+      "endpoints": null,
+      "health_check_path": "string"
+    }
+  },
+  "response": {
+    "binding": {
+      "id": "string",
+      "type": null
+    },
+    "created_at": "string",
+    "created_by": "string",
+    "description": "string",
+    "health_status": "string",
+    "hooks": [
+      {
+        "cache_enabled": null,
+        "cache_ttl_ms": null,
+        "created_at": null,
+        "failure_mode": null,
+        "hook_point": null,
+        "id": null,
+        "name": null,
+        "phase": null,
+        "plugin_id": null,
+        "priority": null,
+        "status": null,
+        "timeout_ms": null,
+        "updated_at": null,
+        "version": null
+      }
+    ],
+    "id": "string",
+    "name": "string",
+    "plugin_type": "string",
+    "retry": {
+      "backoff": "string",
+      "base_delay_ms": 1,
+      "enabled": true,
+      "max_attempts": 1,
+      "retry_on": []
+    },
+    "status": "inactive",
+    "updated_at": "string",
+    "updated_by": "string",
+    "version": 1,
+    "webhook_config": {
+      "auth": null,
+      "endpoints": null,
+      "health_check_path": "string"
+    }
+  }
+}

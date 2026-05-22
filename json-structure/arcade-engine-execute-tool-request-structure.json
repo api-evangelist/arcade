@@ -1,0 +1,39 @@
+{
+  "$id": "https://github.com/api-evangelist/arcade/json-structure/arcade-engine-execute-tool-request-structure.json",
+  "name": "arcade-engine-execute-tool-request",
+  "title": "Arcade Engine ExecuteToolRequest Structure",
+  "description": "Structural projection of the ExecuteToolRequest resource of the Arcade Engine API.",
+  "type": "object",
+  "properties": {
+    "include_error_stacktrace": {
+      "description": "Whether to include the error stacktrace in the response. If not provided, the error stacktrace is not included.",
+      "type": "boolean"
+    },
+    "input": {
+      "description": "JSON input to the tool, if any",
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": true
+        }
+      ]
+    },
+    "run_at": {
+      "description": "The time at which the tool should be run (optional). If not provided, the tool is run immediately. Format ISO 8601: YYYY-MM-DDTHH:MM:SS",
+      "type": "string"
+    },
+    "tool_name": {
+      "type": "string"
+    },
+    "tool_version": {
+      "description": "The tool version to use (optional). If not provided, any version is used",
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool_name"
+  ]
+}

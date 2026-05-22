@@ -1,0 +1,91 @@
+{
+  "$id": "https://github.com/api-evangelist/arcade/json-structure/arcade-engine-tool-execution-detail-structure.json",
+  "name": "arcade-engine-tool-execution-detail",
+  "title": "Arcade Engine ToolExecutionDetailResponse Structure",
+  "description": "Structural projection of the ToolExecutionDetailResponse resource of the Arcade Engine API.",
+  "type": "object",
+  "properties": {
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "finished_at": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "authorization": {
+                "$ref": "#/components/schemas/auth.AuthorizationResponse"
+              },
+              "error": {
+                "$ref": "#/components/schemas/tool.Error"
+              },
+              "logs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/tool.Log"
+                }
+              },
+              "value": {}
+            }
+          },
+          "started_at": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "system_error_message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "execution_status": {
+      "type": "string"
+    },
+    "execution_type": {
+      "type": "string"
+    },
+    "finished_at": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "run_at": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "tool_name": {
+      "type": "string"
+    },
+    "toolkit_name": {
+      "type": "string"
+    },
+    "toolkit_version": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

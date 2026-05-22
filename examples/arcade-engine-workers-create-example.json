@@ -1,0 +1,55 @@
+{
+  "operation": "workers-create",
+  "method": "POST",
+  "path": "/v1/workers",
+  "summary": "Create a Worker",
+  "request": {
+    "enabled": true,
+    "http": {
+      "retry": 1,
+      "secret": "string",
+      "timeout": 1,
+      "uri": "string"
+    },
+    "id": "string",
+    "mcp": {
+      "headers": null,
+      "oauth2": null,
+      "retry": 1,
+      "secrets": null,
+      "timeout": 1,
+      "uri": "string"
+    },
+    "type": "string"
+  },
+  "response": {
+    "binding": {
+      "id": "string",
+      "type": null
+    },
+    "enabled": true,
+    "http": {
+      "retry": 1,
+      "secret": null,
+      "timeout": 1,
+      "uri": "string"
+    },
+    "id": "string",
+    "managed": true,
+    "mcp": {
+      "external_id": "string",
+      "headers": null,
+      "oauth2": null,
+      "redirect_uri": "string",
+      "retry": 1,
+      "secrets": {},
+      "timeout": 1,
+      "uri": "string"
+    },
+    "requirements": {
+      "authorization": null,
+      "met": true
+    },
+    "type": "http"
+  }
+}

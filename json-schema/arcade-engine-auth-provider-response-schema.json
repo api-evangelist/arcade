@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/arcade/json-schema/arcade-engine-auth-provider-response-schema.json",
+  "title": "Arcade Engine AuthProviderResponse",
+  "description": "JSON Schema for the Arcade Engine AuthProviderResponse resource, extracted from the public Arcade OpenAPI 3.0 spec at https://api.arcade.dev/v1/swagger.",
+  "type": "object",
+  "properties": {
+    "binding": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "static",
+            "tenant",
+            "project",
+            "account"
+          ],
+          "x-enum-varnames": [
+            "StaticBindingType",
+            "TenantBindingType",
+            "ProjectBindingType",
+            "AccountBindingType"
+          ]
+        }
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "oauth2": {
+      "type": "object",
+      "properties": {
+        "authorize_request": {
+          "type": "object",
+          "properties": {
+            "auth_header_value_format": {
+              "type": "string"
+            },
+            "auth_method": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "expiration_format": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "request_content_type": {
+              "type": "string"
+            },
+            "response_content_type": {
+              "type": "string"
+            },
+            "response_map": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "client_secret": {
+          "type": "object",
+          "properties": {
+            "binding": {
+              "$ref": "#/components/schemas/identity.BindingType"
+            },
+            "editable": {
+              "type": "boolean"
+            },
+            "exists": {
+              "type": "boolean"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "pkce": {
+          "type": "object",
+          "properties": {
+            "code_challenge_method": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "redirect_uri": {
+          "description": "The redirect URI required for this provider.",
+          "type": "string"
+        },
+        "refresh_request": {
+          "type": "object",
+          "properties": {
+            "auth_header_value_format": {
+              "type": "string"
+            },
+            "auth_method": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "expiration_format": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "request_content_type": {
+              "type": "string"
+            },
+            "response_content_type": {
+              "type": "string"
+            },
+            "response_map": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "scope_delimiter": {
+          "type": "string"
+        },
+        "token_introspection_request": {
+          "type": "object",
+          "properties": {
+            "auth_header_value_format": {
+              "type": "string"
+            },
+            "auth_method": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "expiration_format": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "request_content_type": {
+              "type": "string"
+            },
+            "response_content_type": {
+              "type": "string"
+            },
+            "response_map": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "triggers": {
+              "$ref": "#/components/schemas/schemas.TokenIntrospectionRequestTriggersResponse"
+            }
+          }
+        },
+        "token_request": {
+          "type": "object",
+          "properties": {
+            "auth_header_value_format": {
+              "type": "string"
+            },
+            "auth_method": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "expiration_format": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "request_content_type": {
+              "type": "string"
+            },
+            "response_content_type": {
+              "type": "string"
+            },
+            "response_map": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "user_info_request": {
+          "type": "object",
+          "properties": {
+            "auth_header_value_format": {
+              "type": "string"
+            },
+            "auth_method": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "expiration_format": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "request_content_type": {
+              "type": "string"
+            },
+            "response_content_type": {
+              "type": "string"
+            },
+            "response_map": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "triggers": {
+              "$ref": "#/components/schemas/schemas.UserInfoRequestTriggersResponse"
+            }
+          }
+        }
+      }
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  }
+}

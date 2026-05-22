@@ -1,0 +1,12 @@
+{
+  "operation": "workers-health",
+  "method": "GET",
+  "path": "/v1/workers/{id}/health",
+  "summary": "Get the Health of a Worker",
+  "response": {
+    "enabled": true,
+    "healthy": true,
+    "id": "string",
+    "message": "string"
+  }
+}

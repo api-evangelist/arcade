@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/arcade/json-schema/arcade-engine-tool-execution-detail-schema.json",
+  "title": "Arcade Engine ToolExecutionDetailResponse",
+  "description": "JSON Schema for the Arcade Engine ToolExecutionDetailResponse resource, extracted from the public Arcade OpenAPI 3.0 spec at https://api.arcade.dev/v1/swagger.",
+  "type": "object",
+  "properties": {
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "finished_at": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "authorization": {
+                "$ref": "#/components/schemas/auth.AuthorizationResponse"
+              },
+              "error": {
+                "$ref": "#/components/schemas/tool.Error"
+              },
+              "logs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/tool.Log"
+                }
+              },
+              "value": {}
+            }
+          },
+          "started_at": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "system_error_message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "execution_status": {
+      "type": "string"
+    },
+    "execution_type": {
+      "type": "string"
+    },
+    "finished_at": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "run_at": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "tool_name": {
+      "type": "string"
+    },
+    "toolkit_name": {
+      "type": "string"
+    },
+    "toolkit_version": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  }
+}

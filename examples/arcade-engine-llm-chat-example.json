@@ -1,0 +1,62 @@
+{
+  "operation": "llm-chat",
+  "method": "POST",
+  "path": "/v1/chat/completions",
+  "summary": "Language Model Chat",
+  "request": {
+    "frequency_penalty": 1.0,
+    "logit_bias": {},
+    "logprobs": true,
+    "max_tokens": 1,
+    "messages": [
+      {
+        "content": null,
+        "name": null,
+        "role": null,
+        "tool_call_id": null,
+        "tool_calls": null
+      }
+    ],
+    "model": "string",
+    "n": 1,
+    "parallel_tool_calls": true,
+    "presence_penalty": 1.0,
+    "response_format": {
+      "type": null
+    },
+    "seed": 1,
+    "stop": [
+      "string"
+    ],
+    "stream": true,
+    "stream_options": null,
+    "temperature": 1.0,
+    "tool_choice": null,
+    "tools": null,
+    "top_logprobs": 1,
+    "top_p": 1.0,
+    "user": "string"
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": null,
+        "index": null,
+        "logprobs": null,
+        "message": null,
+        "tool_authorizations": null,
+        "tool_messages": null
+      }
+    ],
+    "created": 1,
+    "id": "string",
+    "model": "string",
+    "object": "string",
+    "system_fingerprint": "string",
+    "usage": {
+      "completion_tokens": 1,
+      "prompt_tokens": 1,
+      "total_tokens": 1
+    }
+  }
+}

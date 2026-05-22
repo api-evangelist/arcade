@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/arcade/json-schema/arcade-engine-authorization-response-schema.json",
+  "title": "Arcade Engine AuthorizationResponse",
+  "description": "JSON Schema for the Arcade Engine AuthorizationResponse resource, extracted from the public Arcade OpenAPI 3.0 spec at https://api.arcade.dev/v1/swagger.",
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "user_info": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "default": "pending",
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "not_started",
+            "pending",
+            "completed",
+            "failed"
+          ],
+          "x-enum-varnames": [
+            "StatusNotStarted",
+            "StatusPending",
+            "StatusCompleted",
+            "StatusFailed"
+          ]
+        }
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  }
+}

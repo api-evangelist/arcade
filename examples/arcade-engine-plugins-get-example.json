@@ -1,0 +1,35 @@
+{
+  "operation": "plugins-get",
+  "method": "GET",
+  "path": "/v1/plugins/{plugin_id}",
+  "summary": "Get a Plugin",
+  "response": {
+    "binding": {
+      "id": "string",
+      "type": null
+    },
+    "created_at": "string",
+    "created_by": "string",
+    "description": "string",
+    "health_status": "string",
+    "id": "string",
+    "name": "string",
+    "plugin_type": "string",
+    "retry": {
+      "backoff": "string",
+      "base_delay_ms": 1,
+      "enabled": true,
+      "max_attempts": 1,
+      "retry_on": []
+    },
+    "status": "inactive",
+    "updated_at": "string",
+    "updated_by": "string",
+    "version": 1,
+    "webhook_config": {
+      "auth": null,
+      "endpoints": null,
+      "health_check_path": "string"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "operation": "auth-providers-update",
+  "method": "PATCH",
+  "path": "/v1/admin/auth_providers/{id}",
+  "summary": "Patch an Auth Provider",
+  "request": {
+    "description": "string",
+    "id": "string",
+    "oauth2": {
+      "authorize_request": null,
+      "client_id": "string",
+      "client_secret": "string",
+      "pkce": null,
+      "refresh_request": null,
+      "scope_delimiter": ",",
+      "token_introspection_request": null,
+      "token_request": null,
+      "user_info_request": null
+    },
+    "provider_id": "string",
+    "status": "string",
+    "type": "string"
+  },
+  "response": {
+    "binding": {
+      "id": "string",
+      "type": null
+    },
+    "created_at": "string",
+    "description": "string",
+    "id": "string",
+    "oauth2": {
+      "authorize_request": null,
+      "client_id": "string",
+      "client_secret": null,
+      "pkce": null,
+      "redirect_uri": "string",
+      "refresh_request": null,
+      "scope_delimiter": "string",
+      "token_introspection_request": null,
+      "token_request": null,
+      "user_info_request": null
+    },
+    "provider_id": "string",
+    "status": "string",
+    "type": "string",
+    "updated_at": "string"
+  }
+}

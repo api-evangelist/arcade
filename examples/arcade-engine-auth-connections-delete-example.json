@@ -1,0 +1,6 @@
+{
+  "operation": "auth-connections-delete",
+  "method": "DELETE",
+  "path": "/v1/admin/user_connections/{id}",
+  "summary": "Delete Auth Connection"
+}

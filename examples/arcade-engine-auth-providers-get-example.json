@@ -1,0 +1,31 @@
+{
+  "operation": "auth-providers-get",
+  "method": "GET",
+  "path": "/v1/admin/auth_providers/{id}",
+  "summary": "Get an Auth Provider",
+  "response": {
+    "binding": {
+      "id": "string",
+      "type": null
+    },
+    "created_at": "string",
+    "description": "string",
+    "id": "string",
+    "oauth2": {
+      "authorize_request": null,
+      "client_id": "string",
+      "client_secret": null,
+      "pkce": null,
+      "redirect_uri": "string",
+      "refresh_request": null,
+      "scope_delimiter": "string",
+      "token_introspection_request": null,
+      "token_request": null,
+      "user_info_request": null
+    },
+    "provider_id": "string",
+    "status": "string",
+    "type": "string",
+    "updated_at": "string"
+  }
+}

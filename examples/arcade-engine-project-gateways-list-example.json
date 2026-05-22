@@ -1,0 +1,30 @@
+{
+  "operation": "project-gateways-list",
+  "method": "GET",
+  "path": "/v1/orgs/{org_id}/projects/{project_id}/gateways",
+  "summary": "List Gateways",
+  "response": {
+    "items": [
+      {
+        "allowed_passthrough_headers": null,
+        "auth_type": null,
+        "binding": null,
+        "consent_skip_client_ids": null,
+        "created_at": null,
+        "description": null,
+        "id": null,
+        "instructions": null,
+        "name": null,
+        "slug": null,
+        "status": null,
+        "tool_filter": null,
+        "updated_at": null,
+        "user_source_id": null
+      }
+    ],
+    "limit": 1,
+    "offset": 1,
+    "page_count": 1,
+    "total_count": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/arcade/json-schema/arcade-engine-execute-tool-request-schema.json",
+  "title": "Arcade Engine ExecuteToolRequest",
+  "description": "JSON Schema for the Arcade Engine ExecuteToolRequest resource, extracted from the public Arcade OpenAPI 3.0 spec at https://api.arcade.dev/v1/swagger.",
+  "type": "object",
+  "required": [
+    "tool_name"
+  ],
+  "properties": {
+    "include_error_stacktrace": {
+      "description": "Whether to include the error stacktrace in the response. If not provided, the error stacktrace is not included.",
+      "type": "boolean"
+    },
+    "input": {
+      "description": "JSON input to the tool, if any",
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": true
+        }
+      ]
+    },
+    "run_at": {
+      "description": "The time at which the tool should be run (optional). If not provided, the tool is run immediately. Format ISO 8601: YYYY-MM-DDTHH:MM:SS",
+      "type": "string"
+    },
+    "tool_name": {
+      "type": "string"
+    },
+    "tool_version": {
+      "description": "The tool version to use (optional). If not provided, any version is used",
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  }
+}

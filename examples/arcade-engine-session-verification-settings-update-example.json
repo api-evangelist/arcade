@@ -1,0 +1,15 @@
+{
+  "operation": "session-verification-settings-update",
+  "method": "PUT",
+  "path": "/v1/admin/settings/session_verification",
+  "summary": "Update Session Verification Settings",
+  "request": {
+    "unsafe_skip_verification": true,
+    "verifier_url": "string"
+  },
+  "response": {
+    "unsafe_skip_verification": true,
+    "unsafe_skip_verification_choice_allowed": true,
+    "verifier_url": "string"
+  }
+}

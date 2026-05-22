@@ -1,0 +1,162 @@
+finopsFramework: "FOCUS 1.0-aligned"
+
+provider:
+  name: Arcade.dev
+  legalName: Arcade AI, Inc.
+  url: https://arcade.dev
+  pricingUrl: https://arcade.dev/pricing
+  apiBaseUrl: https://api.arcade.dev
+
+meta:
+  created: '2026-05-22'
+  modified: '2026-05-22'
+  source:
+    - https://arcade.dev/pricing
+    - https://docs.arcade.dev
+  note: >
+    FinOps alignment for Arcade's commercial offering. Maps Arcade's metered
+    surface (user challenges, tool executions, hosted MCP servers, plan fee) to
+    the FOCUS 1.0 columns used by FinOps practitioners for cost allocation and
+    chargeback.
+
+billingModel:
+  type: subscription-plus-usage
+  currency: USD
+  billingCycle: monthly
+  freeTierAvailable: true
+  paymentCollection: self-serve-card-and-invoice
+  invoiceEntity: Arcade AI, Inc.
+
+costCategories:
+
+  - id: plan-fee
+    name: Plan Subscription Fee
+    description: Recurring base subscription charge for the Growth and Enterprise plans.
+    focus:
+      ChargeCategory: Usage
+      ChargeSubcategory: Committed
+      PricingCategory: Fixed
+      BillingPeriod: Monthly
+      ServiceCategory: AI Platform
+      ServiceName: Arcade MCP Runtime
+    skus:
+      - planId: hobby
+        unitPrice: 0
+        unit: month
+      - planId: growth
+        unitPrice: 25
+        unit: month
+      - planId: enterprise
+        unitPrice: null
+        unit: month
+        note: Negotiated with sales.
+
+  - id: user-challenges
+    name: User Challenges
+    description: Interactive consent prompts shown to end users during tool authorization.
+    focus:
+      ChargeCategory: Usage
+      ChargeSubcategory: Metered
+      PricingCategory: Usage-Based
+      ConsumedUnit: challenges
+      ServiceCategory: AI Platform
+      ServiceName: Arcade Authorization
+    skus:
+      - planId: hobby
+        included: 100
+        overageUnitPrice: null
+      - planId: growth
+        included: 600
+        overageUnitPrice: 0.05
+      - planId: enterprise
+        included: custom
+        overageUnitPrice: custom
+
+  - id: standard-tool-executions
+    name: Standard Tool Executions
+    description: Per-call charge for non-Pro toolkit operations executed on Arcade.
+    focus:
+      ChargeCategory: Usage
+      ChargeSubcategory: Metered
+      PricingCategory: Usage-Based
+      ConsumedUnit: executions
+      ServiceCategory: AI Platform
+      ServiceName: Arcade Tool Execution
+    skus:
+      - planId: hobby
+        included: 1000
+        overageUnitPrice: null
+      - planId: growth
+        included: 2000
+        overageUnitPrice: 0.01
+      - planId: enterprise
+        included: custom
+        overageUnitPrice: custom
+
+  - id: pro-tool-executions
+    name: Pro Tool Executions
+    description: Per-call charge for Pro-tier toolkit operations executed on Arcade.
+    focus:
+      ChargeCategory: Usage
+      ChargeSubcategory: Metered
+      PricingCategory: Usage-Based
+      ConsumedUnit: executions
+      ServiceCategory: AI Platform
+      ServiceName: Arcade Pro Tool Execution
+    skus:
+      - planId: hobby
+        included: 50
+        overageUnitPrice: null
+      - planId: growth
+        included: 100
+        overageUnitPrice: 0.50
+      - planId: enterprise
+        included: custom
+        overageUnitPrice: custom
+
+  - id: hosted-mcp-servers
+    name: Arcade-Hosted MCP Servers
+    description: Per-hour charge for keeping an Arcade-hosted MCP server running.
+    focus:
+      ChargeCategory: Usage
+      ChargeSubcategory: Metered
+      PricingCategory: Usage-Based
+      ConsumedUnit: server-hour
+      ServiceCategory: AI Platform
+      ServiceName: Arcade Hosted MCP
+    skus:
+      - planId: hobby
+        included: 1
+        overageUnitPrice: null
+        note: One hosted server, 24/7, included.
+      - planId: growth
+        included: 0
+        overageUnitPrice: 0.05
+      - planId: enterprise
+        included: custom
+        overageUnitPrice: custom
+
+allocation:
+  recommendedTags:
+    - project_id
+    - org_id
+    - workflow
+    - environment
+    - agent_id
+  source: >
+    Recommended chargeback tags should be attached to tool calls via the gateway
+    or hook layer; surface them in audit logs (Enterprise tier) and feed them
+    into the customer's own FOCUS-compatible billing pipeline.
+
+invoicing:
+  format:
+    - CSV export (Enterprise)
+    - PDF invoice
+  cadence: monthly
+  retention: documented-via-contract
+
+notes: >
+  Arcade does not publish a FOCUS-formatted CUR-equivalent export today. The
+  cost categories above translate the public Hobby/Growth/Enterprise pricing
+  page into FOCUS 1.0 columns so internal FinOps teams can model Arcade spend
+  alongside hyperscaler and SaaS line items.

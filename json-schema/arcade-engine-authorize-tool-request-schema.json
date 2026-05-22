@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/arcade/json-schema/arcade-engine-authorize-tool-request-schema.json",
+  "title": "Arcade Engine AuthorizeToolRequest",
+  "description": "JSON Schema for the Arcade Engine AuthorizeToolRequest resource, extracted from the public Arcade OpenAPI 3.0 spec at https://api.arcade.dev/v1/swagger.",
+  "type": "object",
+  "required": [
+    "tool_name"
+  ],
+  "properties": {
+    "next_uri": {
+      "description": "Optional: if provided, the user will be redirected to this URI after authorization",
+      "type": "string"
+    },
+    "tool_name": {
+      "type": "string"
+    },
+    "tool_version": {
+      "description": "Optional: if not provided, any version is used",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "Required only when calling with an API key",
+      "type": "string"
+    }
+  }
+}

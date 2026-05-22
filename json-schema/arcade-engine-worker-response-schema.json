@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/arcade/json-schema/arcade-engine-worker-response-schema.json",
+  "title": "Arcade Engine WorkerResponse",
+  "description": "JSON Schema for the Arcade Engine WorkerResponse resource, extracted from the public Arcade OpenAPI 3.0 spec at https://api.arcade.dev/v1/swagger.",
+  "type": "object",
+  "properties": {
+    "binding": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "static",
+            "tenant",
+            "project",
+            "account"
+          ],
+          "x-enum-varnames": [
+            "StaticBindingType",
+            "TenantBindingType",
+            "ProjectBindingType",
+            "AccountBindingType"
+          ]
+        }
+      }
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "http": {
+      "type": "object",
+      "properties": {
+        "retry": {
+          "type": "integer"
+        },
+        "secret": {
+          "type": "object",
+          "properties": {
+            "binding": {
+              "$ref": "#/components/schemas/identity.BindingType"
+            },
+            "editable": {
+              "type": "boolean"
+            },
+            "exists": {
+              "type": "boolean"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "timeout": {
+          "type": "integer"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "managed": {
+      "type": "boolean"
+    },
+    "mcp": {
+      "type": "object",
+      "properties": {
+        "external_id": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "oauth2": {
+          "type": "object",
+          "properties": {
+            "authorization_url": {
+              "type": "string"
+            },
+            "client_id": {
+              "type": "string"
+            },
+            "client_secret": {
+              "$ref": "#/components/schemas/schemas.SecretResponse"
+            },
+            "external_id": {
+              "type": "string"
+            },
+            "redirect_uri": {
+              "type": "string"
+            },
+            "supported_scopes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "retry": {
+          "type": "integer"
+        },
+        "secrets": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "binding": {
+                "$ref": "#/components/schemas/identity.BindingType"
+              },
+              "editable": {
+                "type": "boolean"
+              },
+              "exists": {
+                "type": "boolean"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "timeout": {
+          "type": "integer"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "authorization": {
+          "type": "object",
+          "properties": {
+            "met": {
+              "type": "boolean"
+            },
+            "oauth2": {
+              "$ref": "#/components/schemas/schemas.OAuth2AuthorizationRequirementResponse"
+            }
+          }
+        },
+        "met": {
+          "type": "boolean"
+        }
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "http",
+        "mcp",
+        "unknown"
+      ],
+      "x-enum-varnames": [
+        "WorkerTypeHTTP",
+        "WorkerTypeMCP",
+        "WorkerTypeUnknown"
+      ]
+    }
+  }
+}

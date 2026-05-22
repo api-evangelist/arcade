@@ -1,0 +1,30 @@
+{
+  "operation": "plugins-list",
+  "method": "GET",
+  "path": "/v1/plugins",
+  "summary": "List Plugins",
+  "response": {
+    "items": [
+      {
+        "binding": null,
+        "created_at": null,
+        "created_by": null,
+        "description": null,
+        "health_status": null,
+        "id": null,
+        "name": null,
+        "plugin_type": null,
+        "retry": null,
+        "status": null,
+        "updated_at": null,
+        "updated_by": null,
+        "version": null,
+        "webhook_config": null
+      }
+    ],
+    "limit": 1,
+    "offset": 1,
+    "page_count": 1,
+    "total_count": 1
+  }
+}

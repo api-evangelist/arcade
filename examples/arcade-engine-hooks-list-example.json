@@ -1,0 +1,30 @@
+{
+  "operation": "hooks-list",
+  "method": "GET",
+  "path": "/v1/hooks",
+  "summary": "List Hooks",
+  "response": {
+    "items": [
+      {
+        "cache_enabled": null,
+        "cache_ttl_ms": null,
+        "created_at": null,
+        "failure_mode": null,
+        "hook_point": null,
+        "id": null,
+        "name": null,
+        "phase": null,
+        "plugin_id": null,
+        "priority": null,
+        "status": null,
+        "timeout_ms": null,
+        "updated_at": null,
+        "version": null
+      }
+    ],
+    "limit": 1,
+    "offset": 1,
+    "page_count": 1,
+    "total_count": 1
+  }
+}

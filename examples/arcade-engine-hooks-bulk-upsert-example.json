@@ -1,0 +1,31 @@
+{
+  "operation": "hooks-bulk-upsert",
+  "method": "PATCH",
+  "path": "/v1/hooks/bulk",
+  "summary": "Bulk Upsert Hooks",
+  "request": {
+    "configs": [
+      {
+        "failure_mode": null,
+        "hook_point": null,
+        "phase": null,
+        "plugin_id": null,
+        "priority": null,
+        "status": null
+      }
+    ]
+  },
+  "response": {
+    "failed": 1,
+    "results": [
+      {
+        "action": null,
+        "error": null,
+        "hook_id": null,
+        "hook_point": null,
+        "plugin_id": null
+      }
+    ],
+    "success": 1
+  }
+}

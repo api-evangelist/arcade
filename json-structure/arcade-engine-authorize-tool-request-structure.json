@@ -1,0 +1,27 @@
+{
+  "$id": "https://github.com/api-evangelist/arcade/json-structure/arcade-engine-authorize-tool-request-structure.json",
+  "name": "arcade-engine-authorize-tool-request",
+  "title": "Arcade Engine AuthorizeToolRequest Structure",
+  "description": "Structural projection of the AuthorizeToolRequest resource of the Arcade Engine API.",
+  "type": "object",
+  "properties": {
+    "next_uri": {
+      "description": "Optional: if provided, the user will be redirected to this URI after authorization",
+      "type": "string"
+    },
+    "tool_name": {
+      "type": "string"
+    },
+    "tool_version": {
+      "description": "Optional: if not provided, any version is used",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "Required only when calling with an API key",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool_name"
+  ]
+}

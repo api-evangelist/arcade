@@ -1,0 +1,392 @@
+name: Arcade
+description: >
+  Arcade.dev is the MCP runtime for production AI agent deployments. The Arcade
+  Engine — a hosted or self-hostable API surface — handles OAuth user
+  authorization, manages user tokens, and exposes 7,000+ pre-built integrations
+  as Model Context Protocol tools that agent frameworks like LangChain, OpenAI
+  Agents, CrewAI, AG2, Google ADK, Vercel AI, Mastra, and TanStack AI can call.
+  This profile catalogs the public Arcade Engine API (39 endpoints across
+  Admin, Authorization, Tools, LLM, Operations, Hooks, Gateways, and Plugins),
+  the ArcadeAI GitHub org's SDKs, the arcade-mcp framework, and the public
+  schemas repo.
+url: https://github.com/api-evangelist/arcade
+humanURL: https://arcade.dev
+baseURL: https://api.arcade.dev
+image: https://avatars.githubusercontent.com/u/161780576
+tags:
+  - Agents
+  - MCP
+  - AI Agents
+  - Authorization
+  - OAuth
+  - Tool Calling
+  - Agent Infrastructure
+  - LLM
+  - Integrations
+created: '2026-05-22'
+modified: '2026-05-22'
+specificationVersion: '0.18'
+type: Index
+
+apis:
+
+  - name: Arcade Engine API
+    description: >
+      The Arcade Engine HTTP API — the control plane for tool catalogs, user
+      authorization flows, tool execution, scheduled tools, MCP gateways,
+      workers, hooks, plugins, and admin operations. Tagged surfaces are Admin,
+      Authorization, Tools, LLM, Operations, Hooks, Gateways, and Plugins.
+    humanURL: https://docs.arcade.dev/en/references/api
+    baseURL: https://api.arcade.dev
+    image: https://avatars.githubusercontent.com/u/161780576
+    tags:
+      - Engine
+      - Tool Calling
+      - Authorization
+      - MCP Runtime
+    properties:
+      - type: Documentation
+        url: https://docs.arcade.dev
+      - type: APIReference
+        url: https://docs.arcade.dev/en/references/api
+      - type: OpenAPI
+        url: openapi/arcade-engine-openapi.yml
+      - type: OpenAPI
+        url: https://api.arcade.dev/v1/swagger
+        title: Live Arcade Engine OpenAPI 3.0 spec
+      - type: SpectralRules
+        url: rules/arcade-engine-rules.yml
+      - type: Authentication
+        url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+      - type: Quickstart
+        url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+      - type: Quickstart
+        url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+        title: MCP Server Quickstart
+      - type: SDK
+        url: https://github.com/ArcadeAI/arcade-py
+        title: Official Arcade Python Client (arcade-py)
+      - type: SDK
+        url: https://github.com/ArcadeAI/arcade-js
+        title: Arcade NodeJS / TypeScript Client (arcade-js)
+      - type: SDK
+        url: https://github.com/ArcadeAI/arcade-go
+        title: Official Arcade Go Client (arcade-go)
+      - type: SDK
+        url: https://github.com/ArcadeAI/arcade-java
+        title: Arcade Java/Kotlin Client (arcade-java)
+      - type: SDK
+        url: https://github.com/ArcadeAI/arcade-dotnet
+        title: Arcade .NET Client (arcade-dotnet)
+      - type: CLI
+        url: https://docs.arcade.dev/en/references/arcade-cli
+        title: arcade CLI (installed via `uv tool install arcade-mcp` or `pip install arcade-mcp`)
+      - type: ChangeLog
+        url: https://docs.arcade.dev/en/references/changelog
+      - type: NaftikoCapability
+        url: capabilities/engine-admin.yaml
+      - type: NaftikoCapability
+        url: capabilities/engine-authorization.yaml
+      - type: NaftikoCapability
+        url: capabilities/engine-tools.yaml
+      - type: NaftikoCapability
+        url: capabilities/engine-llm.yaml
+      - type: NaftikoCapability
+        url: capabilities/engine-operations.yaml
+      - type: NaftikoCapability
+        url: capabilities/engine-hooks.yaml
+      - type: NaftikoCapability
+        url: capabilities/engine-gateways.yaml
+      - type: NaftikoCapability
+        url: capabilities/engine-plugins.yaml
+      - type: JSONSchema
+        url: json-schema/arcade-engine-tool-response-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-tool-execution-detail-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-execute-tool-request-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-execute-tool-response-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-authorize-tool-request-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-authorization-response-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-auth-provider-response-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-worker-response-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-hook-response-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-gateway-response-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-plugin-response-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-engine-secret-response-schema.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-tool-response-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-tool-execution-detail-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-execute-tool-request-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-execute-tool-response-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-authorize-tool-request-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-authorization-response-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-auth-provider-response-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-worker-response-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-hook-response-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-gateway-response-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-plugin-response-structure.json
+      - type: JSONStructure
+        url: json-structure/arcade-engine-secret-response-structure.json
+
+  - name: Arcade Public Schemas
+    description: >
+      The ArcadeAI/schemas repo on GitHub publishes versioned JSON Schemas for
+      the Arcade engine configuration (1.0 and 2.0) and the worker HTTP
+      contracts (1.0) — tool_definition, execute_tool_request, and
+      execute_tool_response — used by every Arcade worker.
+    humanURL: https://github.com/ArcadeAI/schemas
+    baseURL: https://github.com/ArcadeAI/schemas
+    image: https://avatars.githubusercontent.com/u/161780576
+    tags:
+      - Schemas
+      - JSON Schema
+      - Worker Protocol
+    properties:
+      - type: Documentation
+        url: https://github.com/ArcadeAI/schemas
+      - type: GitHubRepository
+        url: https://github.com/ArcadeAI/schemas
+      - type: JSONSchema
+        url: json-schema/arcade-tool-definition-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-execute-tool-request-schema.json
+      - type: JSONSchema
+        url: json-schema/arcade-execute-tool-response-schema.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/ArcadeAI/schemas/main/worker/http/1.0/tool_definition.schema.json
+        title: Upstream tool_definition.schema.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/ArcadeAI/schemas/main/engine/config/1.0/schema.json
+        title: Upstream engine config 1.0 schema
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/ArcadeAI/schemas/main/engine/config/2.0/schema.json
+        title: Upstream engine config 2.0 schema
+
+  - name: Arcade MCP Framework
+    description: >
+      The arcade-mcp open-source Python framework — "MCP Server Framework and
+      Tool Development library for building custom capabilities into agents."
+      Provides the `arcade` CLI (login, new, show, evals, mcp, deploy,
+      configure, server, secret) and the Python building blocks for writing
+      custom MCP servers and tools. MIT-licensed, 898 stars at profile time.
+    humanURL: https://github.com/ArcadeAI/arcade-mcp
+    baseURL: https://github.com/ArcadeAI/arcade-mcp
+    image: https://avatars.githubusercontent.com/u/161780576
+    tags:
+      - MCP Server
+      - Framework
+      - Python
+      - Open Source
+    properties:
+      - type: GitHubRepository
+        url: https://github.com/ArcadeAI/arcade-mcp
+      - type: Documentation
+        url: https://docs.arcade.dev/en/references/mcp/python
+      - type: SDK
+        url: https://pypi.org/project/arcade-mcp/
+        title: arcade-mcp on PyPI
+      - type: CLI
+        url: https://docs.arcade.dev/en/references/arcade-cli
+
+  - name: Arcade Integration Catalog
+    description: >
+      The Arcade integration catalog — 145 MCP servers across Arcade Optimized,
+      Arcade Unoptimized, Verified, Community, and Auth Provider designations,
+      with 37 additional "Coming Soon" integrations including Shopify,
+      Snowflake, and QuickBooks. Categories include Productivity & Docs,
+      Social & Communication, Developer Tools, Payments & Finance, Search,
+      Sales, Databases, and Customer Support.
+    humanURL: https://docs.arcade.dev/en/resources/integrations
+    image: https://avatars.githubusercontent.com/u/161780576
+    tags:
+      - Integrations
+      - Toolkits
+      - MCP Servers
+    properties:
+      - type: Documentation
+        url: https://docs.arcade.dev/en/resources/integrations
+      - type: Resources
+        url: https://docs.arcade.dev/en/resources/tools
+      - type: Resources
+        url: https://docs.arcade.dev/en/resources/examples
+
+common:
+
+  - type: Portal
+    url: https://arcade.dev
+
+  - type: DeveloperPortal
+    url: https://docs.arcade.dev
+
+  - type: SignUp
+    url: https://api.arcade.dev/dashboard
+
+  - type: Console
+    url: https://api.arcade.dev/dashboard
+
+  - type: Pricing
+    url: https://arcade.dev/pricing
+
+  - type: Plans
+    url: plans/arcade-plans-pricing.yml
+
+  - type: RateLimits
+    url: rate-limits/arcade-rate-limits.yml
+
+  - type: FinOps
+    url: finops/arcade-finops.yml
+
+  - type: TermsOfService
+    url: https://arcade.dev/terms-of-service
+
+  - type: PrivacyPolicy
+    url: https://arcade.dev/privacy-policy
+
+  - type: Blog
+    url: https://arcade.dev/blog
+
+  - type: StatusPage
+    url: https://status.arcade.dev
+
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+
+  - type: GitHubOrganization
+    url: https://github.com/ArcadeAI
+
+  - type: Support
+    url: mailto:contact@arcade.dev
+
+  - type: Vocabulary
+    url: vocabulary/arcade-vocabulary.yml
+
+  - type: JSONLD
+    url: json-ld/arcade-context.jsonld
+
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+
+  - type: NaftikoCapability
+    url: capabilities/engine-admin.yaml
+
+  - type: NaftikoCapability
+    url: capabilities/engine-authorization.yaml
+
+  - type: NaftikoCapability
+    url: capabilities/engine-tools.yaml
+
+  - type: NaftikoCapability
+    url: capabilities/engine-llm.yaml
+
+  - type: NaftikoCapability
+    url: capabilities/engine-operations.yaml
+
+  - type: NaftikoCapability
+    url: capabilities/engine-hooks.yaml
+
+  - type: NaftikoCapability
+    url: capabilities/engine-gateways.yaml
+
+  - type: NaftikoCapability
+    url: capabilities/engine-plugins.yaml
+
+  - type: Features
+    data:
+      - name: MCP Runtime
+        description: "Hosted and self-hostable Model Context Protocol runtime that turns tool definitions into multi-user, authorized invocations for agents."
+      - name: Managed OAuth Authorization
+        description: "Built-in OAuth and identity-provider flows across 30+ named auth providers plus a generic OAuth 2.0 provider; per-user tokens managed without service-account workarounds."
+      - name: Tool Catalog
+        description: "145 MCP servers across Arcade Optimized, Unoptimized, Verified, Community, and Auth Provider designations, with 37 more 'Coming Soon'."
+      - name: Agent-Framework Integrations
+        description: "First-class adapters for LangChain, OpenAI Agents, CrewAI, AG2, Google ADK, Vercel AI, Mastra, and TanStack AI."
+      - name: Evaluations
+        description: "`arcade evals` CLI runs scripted tool-calling evals to gate releases on behavior, not just compile-time checks."
+      - name: Observability
+        description: "Per-execution logs across the Engine plus dashboards; audit logs and compliance reporting are part of the Enterprise tier."
+      - name: Hooks and Plugins
+        description: "Pre- and post-call hooks plus pluggable verifiers and policy modules under /v1/hooks and /v1/plugins."
+      - name: Custom User Verifiers
+        description: "Customer-owned verification flows (e.g. Stytch, Supabase) gating tool execution via /v1/auth/validate_custom_verifier."
+      - name: Scheduled Tools
+        description: "Tools can be registered to fire on a schedule via /v1/scheduled_tools instead of synchronously from an agent."
+      - name: Deployment Flexibility
+        description: "Cloud, VPC, on-premises, or air-gapped — explicitly called out on the homepage."
+      - name: Arcade Registry (beta)
+        description: "Marketplace for publishing and monetizing agent-ready tools."
+
+  - type: UseCases
+    data:
+      - name: Multi-User AI Assistant
+        description: "Agents that act on behalf of distinct end users — Gmail/Calendar/Slack/Salesforce assistants — without shared service credentials."
+      - name: Production Agent Deployment
+        description: "Moving agents from prototype to production with governed OAuth, evals, and observability per the May 2026 CISO governance post."
+      - name: Enterprise MCP Gateway
+        description: "An ingress in front of one or more workers within a project applying routing, headers, and policies."
+      - name: Agent SRE
+        description: "On-call reliability and runbook automation per Arcade's 'AI SRE with Claude Code' blog series."
+      - name: Sales and Productivity Automation
+        description: "Multi-step workflows across Salesforce, HubSpot, Attio, Slack, Linear, Jira, Asana, ClickUp, Notion, Google Workspace, and Microsoft Office."
+      - name: Voice and Chat Assistants
+        description: "WhatsApp / Telegram / Slack assistants powered by the toolkits and the Arcade Engine."
+
+  - type: Integrations
+    data:
+      - name: LangChain
+        description: "First-class LangChain integration; partnership extended via LangSmith Fleet announcement on 2026-04-07."
+      - name: OpenAI Agents
+        description: "Python adapter via openai-agents-arcade for using Arcade tools inside the OpenAI Agents SDK."
+      - name: CrewAI
+        description: "Documented framework integration in docs.arcade.dev."
+      - name: AG2
+        description: "Framework support added in the 2026-04-10 changelog."
+      - name: Google ADK
+        description: "Adapter via google-adk-arcade Python library."
+      - name: Vercel AI
+        description: "arcade-vercel-ai-template demonstrating Arcade tools inside Vercel AI SDK chatbots."
+      - name: Mastra
+        description: "Documented framework integration."
+      - name: TanStack AI
+        description: "Documented framework integration."
+      - name: Anthropic Claude Code
+        description: "Multiple Claude Code routines and on-call workflows shipped from the Arcade blog through April–May 2026."
+      - name: Auth Providers
+        description: "Asana, Atlassian, Discord, Dropbox, GitHub, Google, HubSpot, Linear, LinkedIn, Microsoft, Notion, Reddit, Slack, Spotify, Twitch, X, Zoom, Airtable, Attio, Calendly, ClickUp, Figma, Mailchimp, Miro, PagerDuty, Salesforce, Square, TickTick, Zendesk, Zoho, plus a generic OAuth 2.0 provider."
+
+  - type: Solutions
+    data:
+      - name: Cloud Deployment
+        description: "Arcade-hosted MCP servers, metered on the Growth plan at $0.05 per server-hour."
+      - name: VPC Deployment
+        description: "Deploy the Engine inside the customer's VPC — called out on the homepage as a supported topology."
+      - name: On-Premises Deployment
+        description: "Self-hosted Engine and workers for regulated environments."
+      - name: Air-Gapped Deployment
+        description: "Disconnected deployments for the highest-control environments."
+      - name: Startup Program
+        description: "Custom pricing for companies under 100 employees, nonprofits, and educational institutions via contact@arcade.dev."
+
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

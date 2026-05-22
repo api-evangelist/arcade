@@ -1,0 +1,26 @@
+{
+  "operation": "tool-authorize",
+  "method": "POST",
+  "path": "/v1/tools/authorize",
+  "summary": "Authorize Tool",
+  "request": {
+    "next_uri": "string",
+    "tool_name": "string",
+    "tool_version": "string",
+    "user_id": "string"
+  },
+  "response": {
+    "context": {
+      "token": "string",
+      "user_info": {}
+    },
+    "id": "string",
+    "provider_id": "string",
+    "scopes": [
+      "string"
+    ],
+    "status": null,
+    "url": "string",
+    "user_id": "string"
+  }
+}

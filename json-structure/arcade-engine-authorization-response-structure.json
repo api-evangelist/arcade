@@ -1,0 +1,60 @@
+{
+  "$id": "https://github.com/api-evangelist/arcade/json-structure/arcade-engine-authorization-response-structure.json",
+  "name": "arcade-engine-authorization-response",
+  "title": "Arcade Engine AuthorizationResponse Structure",
+  "description": "Structural projection of the AuthorizationResponse resource of the Arcade Engine API.",
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "user_info": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "default": "pending",
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "not_started",
+            "pending",
+            "completed",
+            "failed"
+          ],
+          "x-enum-varnames": [
+            "StatusNotStarted",
+            "StatusPending",
+            "StatusCompleted",
+            "StatusFailed"
+          ]
+        }
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

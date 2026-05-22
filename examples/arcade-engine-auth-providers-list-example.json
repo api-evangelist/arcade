@@ -1,0 +1,25 @@
+{
+  "operation": "auth-providers-list",
+  "method": "GET",
+  "path": "/v1/admin/auth_providers",
+  "summary": "List Auth Providers",
+  "response": {
+    "items": [
+      {
+        "binding": null,
+        "created_at": null,
+        "description": null,
+        "id": null,
+        "oauth2": null,
+        "provider_id": null,
+        "status": null,
+        "type": null,
+        "updated_at": null
+      }
+    ],
+    "limit": 1,
+    "offset": 1,
+    "page_count": 1,
+    "total_count": 1
+  }
+}

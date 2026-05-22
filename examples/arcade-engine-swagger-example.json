@@ -1,0 +1,7 @@
+{
+  "operation": "swagger",
+  "method": "GET",
+  "path": "/v1/swagger",
+  "summary": "Get Openapi Specification",
+  "response": {}
+}

@@ -1,0 +1,84 @@
+{
+  "$id": "https://github.com/api-evangelist/arcade/json-structure/arcade-engine-hook-response-structure.json",
+  "name": "arcade-engine-hook-response",
+  "title": "Arcade Engine HookResponse Structure",
+  "description": "Structural projection of the HookResponse resource of the Arcade Engine API.",
+  "type": "object",
+  "properties": {
+    "cache_enabled": {
+      "type": "boolean"
+    },
+    "cache_ttl_ms": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "failure_mode": {
+      "type": "string",
+      "enum": [
+        "fail_closed",
+        "fail_open"
+      ],
+      "x-enum-varnames": [
+        "FailureModeClosed",
+        "FailureModeOpen"
+      ]
+    },
+    "hook_point": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "x-enum-varnames": [
+        "PhaseBefore",
+        "PhaseAfter"
+      ]
+    },
+    "plugin_id": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "inactive",
+            "active"
+          ],
+          "x-enum-varnames": [
+            "HookPointStatusInactive",
+            "HookPointStatusActive"
+          ]
+        }
+      ]
+    },
+    "timeout_ms": {
+      "type": "integer"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    }
+  },
+  "required": []
+}

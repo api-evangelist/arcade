@@ -1,0 +1,95 @@
+extends:
+  - spectral:oas
+
+documentationUrl: https://github.com/api-evangelist/arcade
+
+functions: []
+
+rules:
+  # OpenAPI document hygiene
+  operation-tag-defined: error
+  operation-operationId-unique: error
+  operation-operationId: error
+  operation-success-response: warn
+
+  # Arcade-flavored conventions derived from inspecting api.arcade.dev/v1/swagger
+  arcade-operation-id-kebab-case:
+    description: Arcade operation IDs are kebab-case verb-noun phrases (e.g. auth-providers-list, secrets-upsert).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9]+(-[a-z0-9]+)*$"
+
+  arcade-summary-title-case:
+    description: Operation summaries start with a capital letter and use Title Case-friendly phrasing.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  arcade-path-prefix-v1:
+    description: Every Arcade Engine path is versioned under /v1.
+    severity: error
+    given: $.paths
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^/v1/"
+
+  arcade-path-snake-case:
+    description: Arcade Engine paths use snake_case segments (e.g. /v1/admin/user_connections, /v1/scheduled_tools).
+    severity: warn
+    given: $.paths
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^/v1(/[a-z0-9_]+|/\\{[a-z_]+\\})+$"
+
+  arcade-bearer-required:
+    description: Arcade Engine API requires Bearer token authentication via the components.securitySchemes block.
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      function: truthy
+
+  arcade-server-host:
+    description: The primary server URL must be https://api.arcade.dev.
+    severity: error
+    given: $.servers[0].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.arcade\\.dev"
+
+  arcade-info-license-proprietary:
+    description: Arcade Engine spec declares a proprietary license (per the upstream contract).
+    severity: info
+    given: $.info.license.name
+    then:
+      function: pattern
+      functionOptions:
+        match: "Proprietary"
+
+  arcade-tag-allowlist:
+    description: Operations must be tagged with one of the canonical Arcade Engine surfaces.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].tags[*]
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - Admin
+          - Authorization
+          - Tools
+          - LLM
+          - Operations
+          - Hooks
+          - Gateways
+          - Plugins

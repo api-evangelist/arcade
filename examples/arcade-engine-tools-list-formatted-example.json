@@ -1,0 +1,15 @@
+{
+  "operation": "tools-list-formatted",
+  "method": "GET",
+  "path": "/v1/formatted_tools",
+  "summary": "List Formatted Static Tools",
+  "response": {
+    "items": [
+      {}
+    ],
+    "limit": 1,
+    "offset": 1,
+    "page_count": 1,
+    "total_count": 1
+  }
+}

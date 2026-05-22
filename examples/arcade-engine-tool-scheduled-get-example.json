@@ -1,0 +1,31 @@
+{
+  "operation": "tool-scheduled-get",
+  "method": "GET",
+  "path": "/v1/scheduled_tools/{id}",
+  "summary": "Get Scheduled Tool Execution Details",
+  "response": {
+    "attempts": [
+      {
+        "finished_at": null,
+        "id": null,
+        "output": null,
+        "started_at": null,
+        "success": null,
+        "system_error_message": null
+      }
+    ],
+    "created_at": "string",
+    "execution_status": "string",
+    "execution_type": "string",
+    "finished_at": "string",
+    "id": "string",
+    "input": {},
+    "run_at": "string",
+    "started_at": "string",
+    "tool_name": "string",
+    "toolkit_name": "string",
+    "toolkit_version": "string",
+    "updated_at": "string",
+    "user_id": "string"
+  }
+}

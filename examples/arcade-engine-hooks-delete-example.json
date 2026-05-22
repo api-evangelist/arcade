@@ -1,0 +1,6 @@
+{
+  "operation": "hooks-delete",
+  "method": "DELETE",
+  "path": "/v1/hooks/{hook_id}",
+  "summary": "Delete a Hook"
+}

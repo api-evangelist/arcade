@@ -1,0 +1,52 @@
+{
+  "operation": "project-gateways-update",
+  "method": "PUT",
+  "path": "/v1/orgs/{org_id}/projects/{project_id}/gateways/{gateway_id}",
+  "summary": "Update a Gateway",
+  "request": {
+    "allowed_passthrough_headers": [
+      "string"
+    ],
+    "auth_type": "arcade",
+    "consent_skip_client_ids": [
+      "string"
+    ],
+    "description": "string",
+    "id": "string",
+    "instructions": "string",
+    "name": "string",
+    "slug": "string",
+    "status": "string",
+    "tool_filter": {
+      "allowed_tools": [],
+      "discovery": null
+    },
+    "user_source_id": "string"
+  },
+  "response": {
+    "allowed_passthrough_headers": [
+      "string"
+    ],
+    "auth_type": "string",
+    "binding": {
+      "id": "string",
+      "type": null
+    },
+    "consent_skip_client_ids": [
+      "string"
+    ],
+    "created_at": "string",
+    "description": "string",
+    "id": "string",
+    "instructions": "string",
+    "name": "string",
+    "slug": "string",
+    "status": "string",
+    "tool_filter": {
+      "allowed_tools": [],
+      "discovery": null
+    },
+    "updated_at": "string",
+    "user_source_id": "string"
+  }
+}

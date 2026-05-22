@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/arcade/json-schema/arcade-engine-plugin-response-schema.json",
+  "title": "Arcade Engine PluginResponse",
+  "description": "JSON Schema for the Arcade Engine PluginResponse resource, extracted from the public Arcade OpenAPI 3.0 spec at https://api.arcade.dev/v1/swagger.",
+  "type": "object",
+  "properties": {
+    "binding": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "static",
+            "tenant",
+            "project",
+            "account"
+          ],
+          "x-enum-varnames": [
+            "StaticBindingType",
+            "TenantBindingType",
+            "ProjectBindingType",
+            "AccountBindingType"
+          ]
+        }
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "health_status": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "plugin_type": {
+      "type": "string"
+    },
+    "retry": {
+      "type": "object",
+      "properties": {
+        "backoff": {
+          "type": "string"
+        },
+        "base_delay_ms": {
+          "type": "integer"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "max_attempts": {
+          "type": "integer"
+        },
+        "retry_on": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "inactive",
+        "active"
+      ],
+      "x-enum-varnames": [
+        "PluginStatusInactive",
+        "PluginStatusActive"
+      ]
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "webhook_config": {
+      "type": "object",
+      "properties": {
+        "auth": {
+          "type": "object",
+          "properties": {
+            "ca_cert": {
+              "type": "string"
+            },
+            "client_cert_configured": {
+              "type": "boolean"
+            },
+            "client_key_configured": {
+              "type": "boolean"
+            },
+            "token": {
+              "$ref": "#/components/schemas/schemas.SecretResponse"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "endpoints": {
+          "type": "object",
+          "properties": {
+            "access": {
+              "$ref": "#/components/schemas/schemas.WebhookEndpointResponse"
+            },
+            "post": {
+              "$ref": "#/components/schemas/schemas.WebhookEndpointResponse"
+            },
+            "pre": {
+              "$ref": "#/components/schemas/schemas.WebhookEndpointResponse"
+            }
+          }
+        },
+        "health_check_path": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "operation": "workers-authorize",
+  "method": "GET",
+  "path": "/v1/workers/{id}/authorize",
+  "summary": "Authorize a Worker",
+  "response": {
+    "next_uri": "string",
+    "scopes": [
+      "string"
+    ],
+    "status": "string",
+    "url": "string",
+    "user_id": "string",
+    "worker_id": "string"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "operation": "plugins-delete",
+  "method": "DELETE",
+  "path": "/v1/plugins/{plugin_id}",
+  "summary": "Delete a Plugin"
+}

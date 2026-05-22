@@ -1,0 +1,14 @@
+{
+  "operation": "confirm-user-auth-flow",
+  "method": "POST",
+  "path": "/v1/auth/confirm_user",
+  "summary": "Confirm User Authorization",
+  "request": {
+    "flow_id": "string",
+    "user_id": "string"
+  },
+  "response": {
+    "auth_id": "string",
+    "next_uri": "string"
+  }
+}

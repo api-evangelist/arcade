@@ -1,0 +1,12 @@
+{
+  "operation": "project-gateways-slug-info",
+  "method": "POST",
+  "path": "/v1/orgs/{org_id}/projects/{project_id}/gateways/slug",
+  "summary": "Check Gateway Slug Availability",
+  "request": {
+    "slug": "string"
+  },
+  "response": {
+    "available": true
+  }
+}

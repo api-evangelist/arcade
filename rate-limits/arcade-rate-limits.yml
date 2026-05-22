@@ -1,0 +1,113 @@
+apiCommonsRateLimits: "0.1"
+
+provider:
+  name: Arcade.dev
+  url: https://arcade.dev
+  docs: https://docs.arcade.dev
+  pricingUrl: https://arcade.dev/pricing
+  apiBaseUrl: https://api.arcade.dev
+
+meta:
+  created: '2026-05-22'
+  modified: '2026-05-22'
+  source:
+    - https://arcade.dev/pricing
+    - https://docs.arcade.dev/en/references/changelog
+  note: >
+    Arcade publishes plan-level quotas rather than per-second/per-minute request
+    rates. The Engine's first-party MCP rate limits were "increased" in the
+    2026-03-27 changelog entry but specific request-rate numbers are not
+    publicly documented. The plan-level quotas below are sourced from
+    arcade.dev/pricing (verified 2026-05-22).
+
+quotas:
+
+  - id: user-challenges
+    description: Metered interactive consent events on hosted Arcade.
+    plans:
+      hobby:
+        limit: 100
+        period: month
+        overageRate: null
+        currency: USD
+      growth:
+        limit: 600
+        period: month
+        overageRate: 0.05
+        currency: USD
+      enterprise:
+        limit: custom
+        period: custom
+
+  - id: standard-tool-executions
+    description: Standard tool execution count, all toolkits except those marked Pro.
+    plans:
+      hobby:
+        limit: 1000
+        period: month
+        overageRate: null
+        currency: USD
+      growth:
+        limit: 2000
+        period: month
+        overageRate: 0.01
+        currency: USD
+      enterprise:
+        limit: custom
+        period: custom
+
+  - id: pro-tool-executions
+    description: Pro-tier tool execution count for higher-cost toolkits.
+    plans:
+      hobby:
+        limit: 50
+        period: month
+        overageRate: null
+        currency: USD
+      growth:
+        limit: 100
+        period: month
+        overageRate: 0.50
+        currency: USD
+      enterprise:
+        limit: custom
+        period: custom
+
+  - id: arcade-hosted-mcp-servers
+    description: Concurrent Arcade-hosted MCP server instances kept running 24/7.
+    plans:
+      hobby:
+        limit: 1
+        period: ongoing
+        overageRate: null
+        currency: USD
+      growth:
+        limit: null
+        period: ongoing
+        overageRate: 0.05
+        currency: USD
+        unit: server-hour
+        note: "Hosted MCP servers metered at $0.05 per server-hour beyond the included single server."
+      enterprise:
+        limit: custom
+        period: custom
+
+requestRates:
+  documented: false
+  note: >
+    Arcade does not currently publish per-endpoint requests-per-second limits on its
+    public Engine API. The 2026-03-27 changelog records an unspecified increase to
+    Arcade-managed first-party MCP rate limits. Self-hosted deployments are bounded
+    by worker capacity rather than Engine-side throttling.
+
+headers:
+  documented: false
+  note: >
+    The publicly published OpenAPI spec (https://api.arcade.dev/v1/swagger) does
+    not declare standard `X-RateLimit-*` headers in its global responses block.
+
+retryPolicy:
+  documented: partial
+  note: >
+    The Engine exposes retry-config endpoints under /v1/plugins; per-tool retry
+    policies are configurable rather than a single fixed strategy.

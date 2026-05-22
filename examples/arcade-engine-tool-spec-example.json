@@ -1,0 +1,36 @@
+{
+  "operation": "tool-spec",
+  "method": "GET",
+  "path": "/v1/tools/{name}",
+  "summary": "Get Arcade Tool Specification",
+  "response": {
+    "description": "string",
+    "formatted_schema": {},
+    "fully_qualified_name": "string",
+    "input": {
+      "parameters": []
+    },
+    "metadata": {
+      "behavior": null,
+      "classification": null,
+      "extras": {}
+    },
+    "name": "string",
+    "output": {
+      "available_modes": [],
+      "description": "string",
+      "value_schema": null
+    },
+    "qualified_name": "string",
+    "requirements": {
+      "authorization": null,
+      "met": true,
+      "secrets": []
+    },
+    "toolkit": {
+      "description": "string",
+      "name": "string",
+      "version": "string"
+    }
+  }
+}

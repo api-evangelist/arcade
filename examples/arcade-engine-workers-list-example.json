@@ -1,0 +1,24 @@
+{
+  "operation": "workers-list",
+  "method": "GET",
+  "path": "/v1/workers",
+  "summary": "List All Workers",
+  "response": {
+    "items": [
+      {
+        "binding": null,
+        "enabled": null,
+        "http": null,
+        "id": null,
+        "managed": null,
+        "mcp": null,
+        "requirements": null,
+        "type": null
+      }
+    ],
+    "limit": 1,
+    "offset": 1,
+    "page_count": 1,
+    "total_count": 1
+  }
+}

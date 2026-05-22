@@ -1,0 +1,28 @@
+{
+  "operation": "tool-scheduled-list",
+  "method": "GET",
+  "path": "/v1/scheduled_tools",
+  "summary": "List Scheduled Tool Executions",
+  "response": {
+    "items": [
+      {
+        "created_at": null,
+        "execution_status": null,
+        "execution_type": null,
+        "finished_at": null,
+        "id": null,
+        "run_at": null,
+        "started_at": null,
+        "tool_name": null,
+        "toolkit_name": null,
+        "toolkit_version": null,
+        "updated_at": null,
+        "user_id": null
+      }
+    ],
+    "limit": 1,
+    "offset": 1,
+    "page_count": 1,
+    "total_count": 1
+  }
+}

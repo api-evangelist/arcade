@@ -1,0 +1,30 @@
+{
+  "operation": "tool-execute",
+  "method": "POST",
+  "path": "/v1/tools/execute",
+  "summary": "Execute Tool",
+  "request": {
+    "include_error_stacktrace": true,
+    "input": null,
+    "run_at": "string",
+    "tool_name": "string",
+    "tool_version": "string",
+    "user_id": "string"
+  },
+  "response": {
+    "duration": 1.0,
+    "execution_id": "string",
+    "execution_type": "string",
+    "finished_at": "string",
+    "id": "string",
+    "output": {
+      "authorization": null,
+      "error": null,
+      "logs": [],
+      "value": null
+    },
+    "run_at": "string",
+    "status": "string",
+    "success": true
+  }
+}

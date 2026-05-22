@@ -1,0 +1,6 @@
+{
+  "operation": "workers-delete",
+  "method": "DELETE",
+  "path": "/v1/workers/{id}",
+  "summary": "Delete a Worker"
+}

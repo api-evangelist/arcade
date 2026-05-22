@@ -1,0 +1,309 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Arcade Engine — Hooks
+  description: 'Hooks surface — 6 operations. Lead operation: List Hooks. Self-contained Naftiko capability covering one Arcade business surface.'
+  tags:
+    - Arcade
+    - Engine
+    - Hooks
+  created: '2026-05-22'
+  modified: '2026-05-22'
+binds:
+  - namespace: env
+    keys:
+      ARCADE_API_KEY: ARCADE_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: engine-hooks
+      baseUri: https://api.arcade.dev
+      description: Arcade Engine — Hooks business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.ARCADE_API_KEY}}'
+      resources:
+        - name: v1-hooks
+          path: /v1/hooks
+          operations:
+            - name: hooks-list
+              method: GET
+              description: List Hooks
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: Limit
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: Offset
+                - name: hook_point
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by hook point
+                - name: plugin_id
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by plugin ID
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by status
+            - name: hooks-create
+              method: POST
+              description: Create a Hook
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-hooks-bulk
+          path: /v1/hooks/bulk
+          operations:
+            - name: hooks-bulk-upsert
+              method: PATCH
+              description: Bulk Upsert Hooks
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-hooks-hook-id
+          path: /v1/hooks/{hook_id}
+          operations:
+            - name: hooks-get
+              method: GET
+              description: Get a Hook
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: hook_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Hook ID
+                - name: binding_type
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by binding type (tenant or project)
+            - name: hooks-delete
+              method: DELETE
+              description: Delete a Hook
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: hook_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Hook ID
+            - name: hooks-update
+              method: PATCH
+              description: Update a Hook
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: hook_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Hook ID
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+  exposes:
+    - type: rest
+      namespace: engine-hooks-rest
+      port: 8080
+      description: REST adapter for Arcade Engine — Hooks. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/hooks
+          name: v1-hooks
+          description: REST surface for /v1/hooks.
+          operations:
+            - method: GET
+              name: hooks-list
+              description: List Hooks
+              call: engine-hooks.hooks-list
+              with:
+                limit: rest.limit
+                offset: rest.offset
+                hook_point: rest.hook_point
+                plugin_id: rest.plugin_id
+                status: rest.status
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: hooks-create
+              description: Create a Hook
+              call: engine-hooks.hooks-create
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/hooks/bulk
+          name: v1-hooks-bulk
+          description: REST surface for /v1/hooks/bulk.
+          operations:
+            - method: PATCH
+              name: hooks-bulk-upsert
+              description: Bulk Upsert Hooks
+              call: engine-hooks.hooks-bulk-upsert
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/hooks/{hook-id}
+          name: v1-hooks-hook-id
+          description: REST surface for /v1/hooks/{hook-id}.
+          operations:
+            - method: GET
+              name: hooks-get
+              description: Get a Hook
+              call: engine-hooks.hooks-get
+              with:
+                hook_id: rest.hook_id
+                binding_type: rest.binding_type
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: DELETE
+              name: hooks-delete
+              description: Delete a Hook
+              call: engine-hooks.hooks-delete
+              with:
+                hook_id: rest.hook_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PATCH
+              name: hooks-update
+              description: Update a Hook
+              call: engine-hooks.hooks-update
+              with:
+                hook_id: rest.hook_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: engine-hooks-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Arcade Engine — Hooks. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: list-hooks
+          description: List Hooks
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-hooks.hooks-list
+          with:
+            limit: tools.limit
+            offset: tools.offset
+            hook_point: tools.hook_point
+            plugin_id: tools.plugin_id
+            status: tools.status
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: create-hook
+          description: Create a Hook
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: engine-hooks.hooks-create
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: bulk-upsert-hooks
+          description: Bulk Upsert Hooks
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: engine-hooks.hooks-bulk-upsert
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-hook
+          description: Get a Hook
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-hooks.hooks-get
+          with:
+            hook_id: tools.hook_id
+            binding_type: tools.binding_type
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-hook
+          description: Delete a Hook
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: engine-hooks.hooks-delete
+          with:
+            hook_id: tools.hook_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-hook
+          description: Update a Hook
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: engine-hooks.hooks-update
+          with:
+            hook_id: tools.hook_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,30 @@
+{
+  "operation": "tool-requirements",
+  "method": "POST",
+  "path": "/v1/tools/requirements",
+  "summary": "Check Tool Requirements",
+  "request": {
+    "authorize": true,
+    "tool_names": [
+      "string"
+    ],
+    "tools": [
+      {
+        "tool_name": null,
+        "tool_version": null
+      }
+    ],
+    "user_id": "string"
+  },
+  "response": {
+    "authorization": {
+      "items": {},
+      "met": true
+    },
+    "met": true,
+    "secrets": {
+      "items": {},
+      "met": true
+    }
+  }
+}

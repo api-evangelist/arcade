@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/arcade/json-schema/arcade-engine-hook-response-schema.json",
+  "title": "Arcade Engine HookResponse",
+  "description": "JSON Schema for the Arcade Engine HookResponse resource, extracted from the public Arcade OpenAPI 3.0 spec at https://api.arcade.dev/v1/swagger.",
+  "type": "object",
+  "properties": {
+    "cache_enabled": {
+      "type": "boolean"
+    },
+    "cache_ttl_ms": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "failure_mode": {
+      "type": "string",
+      "enum": [
+        "fail_closed",
+        "fail_open"
+      ],
+      "x-enum-varnames": [
+        "FailureModeClosed",
+        "FailureModeOpen"
+      ]
+    },
+    "hook_point": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "x-enum-varnames": [
+        "PhaseBefore",
+        "PhaseAfter"
+      ]
+    },
+    "plugin_id": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "inactive",
+            "active"
+          ],
+          "x-enum-varnames": [
+            "HookPointStatusInactive",
+            "HookPointStatusActive"
+          ]
+        }
+      ]
+    },
+    "timeout_ms": {
+      "type": "integer"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    }
+  }
+}

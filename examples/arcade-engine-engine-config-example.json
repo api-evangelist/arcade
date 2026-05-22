@@ -1,0 +1,19 @@
+{
+  "operation": "engine-config",
+  "method": "GET",
+  "path": "/v1/config",
+  "summary": "Get Engine Config",
+  "response": {
+    "dashboard": {
+      "authority": "string",
+      "clientId": "string",
+      "coordinatorUri": "string"
+    },
+    "oauth2": {
+      "callback_url_template": "string"
+    },
+    "servers": {
+      "timeout_max_seconds": 1
+    }
+  }
+}

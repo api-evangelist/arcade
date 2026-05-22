@@ -1,0 +1,24 @@
+{
+  "operation": "workers-test",
+  "method": "POST",
+  "path": "/v1/workers/test",
+  "summary": "Test a Worker Connection",
+  "request": {
+    "http": {
+      "uri": "string"
+    },
+    "mcp": {
+      "uri": "string"
+    },
+    "type": "string"
+  },
+  "response": {
+    "message": "string",
+    "serverInfo": {
+      "description": "string",
+      "name": "string",
+      "version": "string"
+    },
+    "success": true
+  }
+}

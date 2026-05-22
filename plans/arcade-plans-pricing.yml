@@ -1,0 +1,150 @@
+apiCommonsPlans: "0.1"
+
+provider:
+  name: Arcade.dev
+  legalName: Arcade AI, Inc.
+  url: https://arcade.dev
+  pricingUrl: https://arcade.dev/pricing
+  termsUrl: https://arcade.dev/terms-of-service
+  privacyUrl: https://arcade.dev/privacy-policy
+  contactEmail: contact@arcade.dev
+
+meta:
+  created: '2026-05-22'
+  modified: '2026-05-22'
+  source: https://arcade.dev/pricing
+  note: >
+    Plans transcribed verbatim from arcade.dev/pricing on 2026-05-22. Quotes are
+    one-sentence positioning lines from the pricing page; quotas and per-unit
+    overage rates are the ones disclosed publicly. Enterprise quotas are listed
+    as "custom" by the provider.
+
+plans:
+
+  - id: hobby
+    name: Hobby
+    tagline: "Connect agents to services using pre-built authentication and tools."
+    price:
+      amount: 0
+      currency: USD
+      interval: month
+      model: free
+    included:
+      - metric: UserChallenges
+        amount: 100
+        unit: challenges
+        period: month
+      - metric: StandardToolExecutions
+        amount: 1000
+        unit: executions
+        period: month
+      - metric: ProToolExecutions
+        amount: 50
+        unit: executions
+        period: month
+      - metric: ArcadeHostedMcpServers
+        amount: 1
+        unit: server
+        period: ongoing
+        note: "1 Arcade-hosted MCP server, 24/7."
+    overage: []
+    features:
+      - Connect agents to services using pre-built authentication and tools
+      - Access to the integration catalog
+      - Self-serve onboarding via the dashboard
+    support:
+      channel: community
+      sla: none
+      note: "Community support via GitHub."
+
+  - id: growth
+    name: Growth
+    tagline: "For developers and small teams moving agents to production."
+    price:
+      amount: 25
+      currency: USD
+      interval: month
+      model: subscription-plus-usage
+    included:
+      - metric: UserChallenges
+        amount: 600
+        unit: challenges
+        period: month
+      - metric: StandardToolExecutions
+        amount: 2000
+        unit: executions
+        period: month
+      - metric: ProToolExecutions
+        amount: 100
+        unit: executions
+        period: month
+    overage:
+      - metric: UserChallenges
+        rate: 0.05
+        currency: USD
+        unit: challenge
+      - metric: StandardToolExecutions
+        rate: 0.01
+        currency: USD
+        unit: execution
+      - metric: ProToolExecutions
+        rate: 0.50
+        currency: USD
+        unit: execution
+      - metric: ArcadeHostedMcpServers
+        rate: 0.05
+        currency: USD
+        unit: server-hour
+    features:
+      - Everything in Hobby
+      - Hosted MCP servers metered hourly
+      - Production-ready tool execution
+    support:
+      channel: email
+      sla: documented
+      note: "Email support with Service Level Agreement (SLA)."
+
+  - id: enterprise
+    name: Enterprise
+    tagline: "Deploy agents with dedicated infrastructure, enterprise security, and compliance."
+    price:
+      amount: null
+      currency: USD
+      interval: custom
+      model: contact-sales
+    included:
+      - metric: AllMetrics
+        amount: custom
+        unit: custom
+        period: custom
+    overage:
+      - metric: AllMetrics
+        rate: custom
+        currency: USD
+        unit: custom
+    features:
+      - Dedicated tenant isolation
+      - Audit logs and compliance reporting
+      - Role-Based Access Control (RBAC)
+      - SSO and SAML authentication
+      - Custom SLAs
+    support:
+      channel: dedicated
+      sla: custom
+      note: "Dedicated account representative and custom SLA."
+
+  - id: startup
+    name: Startup Program
+    tagline: "Custom pricing for companies under 100 employees, nonprofits, and educational institutions."
+    price:
+      amount: null
+      currency: USD
+      interval: custom
+      model: contact-sales
+    eligibility:
+      - "Companies with fewer than 100 employees"
+      - "Nonprofits"
+      - "Educational institutions"
+    contact: contact@arcade.dev
+
+addOns: []

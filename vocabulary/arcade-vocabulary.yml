@@ -1,0 +1,185 @@
+name: Arcade Vocabulary
+description: >
+  Controlled vocabulary covering the operational and capability dimensions of the
+  Arcade.dev developer platform — the Arcade Engine API, the MCP Server framework,
+  the agent-side SDKs, and the auth-provider catalog. Terms are sourced from the
+  public OpenAPI spec at https://api.arcade.dev/v1/swagger, the docs at
+  https://docs.arcade.dev, and the ArcadeAI GitHub org.
+url: https://github.com/api-evangelist/arcade
+created: '2026-05-22'
+modified: '2026-05-22'
+
+domains:
+  - name: Platform
+    description: Top-level concepts naming Arcade as a category and product.
+    terms:
+      - term: MCP Runtime
+        description: >
+          Arcade's category framing — "the only MCP runtime for secure, reliable AI
+          agent deployments." A runtime hosts Model Context Protocol servers,
+          mediates user authorization, and routes tool calls from agent frameworks
+          to downstream APIs.
+      - term: Arcade Engine
+        description: >
+          The HTTP API surface (api.arcade.dev) that exposes tool catalogs,
+          authorization flows, execution endpoints, hooks, gateways, plugins, and
+          worker management. Documented by the OpenAPI 3.0 spec at
+          api.arcade.dev/v1/swagger.
+      - term: Arcade Registry
+        description: >
+          The marketplace (in beta) where publishers list and monetize MCP-compatible
+          tools and toolkits consumable by agent runtimes.
+      - term: Arcade Cloud
+        description: >
+          Arcade's managed deployment target — hosted MCP servers, secrets storage,
+          dashboards, and metered execution covered under the Hobby, Growth, and
+          Enterprise plans.
+
+  - name: Tool Model
+    description: Concepts in the agent-tool execution model.
+    terms:
+      - term: Tool
+        description: >
+          A single invocable capability addressed by a fully-qualified name and
+          backed by an input/output schema, an authorization requirement, and an
+          execution worker.
+      - term: Toolkit
+        description: >
+          A versioned bundle of related tools (e.g. Gmail, Linear, PostHog) packaged
+          for installation into an Arcade-hosted or self-hosted MCP server.
+      - term: Tool Definition
+        description: >
+          The structural contract for a tool — name, description, input/output
+          parameters, authorization requirement, and toolkit metadata — published in
+          the ArcadeAI/schemas repo.
+      - term: Tool Execution
+        description: >
+          A single run of a tool — request payload, authorization context, worker
+          attempt history, and the formatted response returned to the agent.
+      - term: Scheduled Tool
+        description: >
+          A tool execution registered to run on a schedule rather than synchronously
+          in response to an agent call.
+      - term: Pro Tool Execution
+        description: >
+          Plan-metered execution class for higher-cost or higher-effort tool calls;
+          billed separately from standard executions on the Growth tier.
+      - term: Formatted Tool
+        description: >
+          A tool rendered for a target agent-framework consumer (LangChain, OpenAI
+          Agents, CrewAI, Vercel AI, Mastra, etc.).
+
+  - name: Authorization
+    description: User-, app-, and agent-level authorization concepts.
+    terms:
+      - term: Auth Provider
+        description: >
+          An OAuth or generic identity integration registered on Arcade — Asana,
+          Atlassian, Discord, Dropbox, GitHub, Google, HubSpot, Linear, LinkedIn,
+          Microsoft, Notion, Reddit, Slack, Spotify, Twitch, X, Zoom, Airtable,
+          Attio, Calendly, ClickUp, Figma, Mailchimp, Miro, PagerDuty, Salesforce,
+          Square, TickTick, Zendesk, Zoho, plus the generic OAuth 2.0 provider.
+      - term: Authorization Requirement
+        description: >
+          The set of scopes, providers, and binding type a tool needs before it can
+          execute on behalf of a specific user.
+      - term: Authorization Context
+        description: >
+          The resolved token, identity, and scope bundle that accompanies a single
+          tool execution.
+      - term: User Connection
+        description: >
+          A persisted link between an Arcade user and an upstream identity (Google,
+          Slack, etc.) plus the tokens that authorize tool calls on their behalf.
+      - term: Binding Type
+        description: >
+          How a credential is bound to an execution — per-user, per-tenant, or
+          shared service credential.
+      - term: User Challenge
+        description: >
+          A unit of metered interactive consent — the plan-quoted cost when Arcade
+          asks an end user to grant or refresh an authorization.
+      - term: Custom User Verifier
+        description: >
+          A customer-supplied verifier (e.g. Stytch, Supabase) that Arcade calls
+          before activating a token for a tool call.
+      - term: Session Verification
+        description: >
+          Admin-level policy controlling how Arcade re-verifies an active session
+          before sensitive tool calls.
+
+  - name: Runtime And Topology
+    description: Deployable runtime components and their topology.
+    terms:
+      - term: Worker
+        description: >
+          A process that hosts and executes tools. Workers can be Arcade-hosted or
+          self-hosted; the Engine routes tool calls to a worker, optionally through
+          a gateway.
+      - term: Gateway
+        description: >
+          An ingress in front of one or more workers within a project, applying
+          routing rules, headers, and policies.
+      - term: Hook
+        description: >
+          A configurable extension point — pre- or post-call — that injects custom
+          logic into the tool execution pipeline.
+      - term: Hook Point
+        description: >
+          The position in the execution lifecycle at which a hook runs.
+      - term: Plugin
+        description: >
+          A registered extension (typically a hook bundle or auth verifier) that
+          plugs into the Engine for an org.
+      - term: MCP Server
+        description: >
+          A Model-Context-Protocol-compatible server exposing tools; can be
+          Arcade-hosted (counted against the plan's hosted-server quota) or
+          self-hosted (via arcade-mcp).
+      - term: Project
+        description: >
+          A logical container inside an organization that owns a set of gateways,
+          workers, and tools.
+      - term: Organization
+        description: >
+          The Arcade tenant — owns projects, billing, and identity policies.
+
+  - name: Observability
+    description: Visibility and quality concepts.
+    terms:
+      - term: Eval
+        description: >
+          A scripted evaluation of tool-calling behavior, runnable through the
+          `arcade evals` CLI command and used to gate releases.
+      - term: Execution Log
+        description: >
+          Recorded request, response, and authorization context for a tool
+          execution — the basis of Arcade's observability surface.
+      - term: Audit Log
+        description: >
+          Enterprise-tier event log used for compliance and incident review.
+      - term: Status Page
+        description: >
+          status.arcade.dev — the public uptime surface; reports "All Systems
+          Operational" with 100% uptime over the past 90 days as of 2026-05-22.
+
+  - name: Commercial
+    description: Plans and pricing concepts.
+    terms:
+      - term: Hobby
+        description: >
+          Free tier — 100 user challenges, 1,000 standard tool executions, 50 pro
+          tool executions, one Arcade-hosted MCP server, community GitHub support.
+      - term: Growth
+        description: >
+          $25/month tier — 600 user challenges (then $0.05 each), 2,000 standard
+          executions (then $0.01 each), 100 pro executions (then $0.50 each), hosted
+          MCP servers at $0.05/hour, email support with SLA.
+      - term: Enterprise
+        description: >
+          Custom-priced tier — dedicated tenant isolation, audit logs, RBAC,
+          SSO/SAML, dedicated account rep, custom SLAs.
+      - term: Startup Program
+        description: >
+          Custom pricing track for companies under 100 employees, nonprofits, and
+          educational institutions; entry via contact@arcade.dev.

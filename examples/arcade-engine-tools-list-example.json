@@ -1,0 +1,26 @@
+{
+  "operation": "tools-list",
+  "method": "GET",
+  "path": "/v1/workers/{id}/tools",
+  "summary": "List Tools",
+  "response": {
+    "items": [
+      {
+        "description": null,
+        "formatted_schema": null,
+        "fully_qualified_name": null,
+        "input": null,
+        "metadata": null,
+        "name": null,
+        "output": null,
+        "qualified_name": null,
+        "requirements": null,
+        "toolkit": null
+      }
+    ],
+    "limit": 1,
+    "offset": 1,
+    "page_count": 1,
+    "total_count": 1
+  }
+}

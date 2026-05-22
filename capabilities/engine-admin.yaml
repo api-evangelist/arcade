@@ -1,0 +1,895 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Arcade Engine — Admin
+  description: 'Admin surface — 21 operations. Lead operation: List Auth Providers. Self-contained Naftiko capability covering one Arcade business surface.'
+  tags:
+    - Arcade
+    - Engine
+    - Admin
+  created: '2026-05-22'
+  modified: '2026-05-22'
+binds:
+  - namespace: env
+    keys:
+      ARCADE_API_KEY: ARCADE_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: engine-admin
+      baseUri: https://api.arcade.dev
+      description: Arcade Engine — Admin business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.ARCADE_API_KEY}}'
+      resources:
+        - name: v1-admin-auth-providers
+          path: /v1/admin/auth_providers
+          operations:
+            - name: auth-providers-list
+              method: GET
+              description: List Auth Providers
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: auth-providers-create
+              method: POST
+              description: Create an Auth Provider
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-admin-auth-providers-id
+          path: /v1/admin/auth_providers/{id}
+          operations:
+            - name: auth-providers-get
+              method: GET
+              description: Get an Auth Provider
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of the auth provider to get
+            - name: auth-providers-delete
+              method: DELETE
+              description: Delete an Auth Provider
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of the auth provider to delete
+            - name: auth-providers-update
+              method: PATCH
+              description: Patch an Auth Provider
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-admin-secrets
+          path: /v1/admin/secrets
+          operations:
+            - name: secrets-list
+              method: GET
+              description: List Secrets
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v1-admin-secrets-secret-id
+          path: /v1/admin/secrets/{secret_id}
+          operations:
+            - name: secrets-delete
+              method: DELETE
+              description: Delete Secret
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: secret_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of the secret to delete
+        - name: v1-admin-secrets-secret-key
+          path: /v1/admin/secrets/{secret_key}
+          operations:
+            - name: secrets-upsert
+              method: POST
+              description: Upsert Secret
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: secret_key
+                  in: path
+                  type: string
+                  required: true
+                  description: The key of the secret to upsert
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-admin-settings-session-verification
+          path: /v1/admin/settings/session_verification
+          operations:
+            - name: session-verification-settings-get
+              method: GET
+              description: Get Session Verification Settings
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: session-verification-settings-update
+              method: PUT
+              description: Update Session Verification Settings
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-admin-user-connections
+          path: /v1/admin/user_connections
+          operations:
+            - name: auth-connections-list
+              method: GET
+              description: List Auth Connections
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: provider_id
+                  in: query
+                  type: string
+                  required: false
+                  description: Provider ID
+                - name: user_id
+                  in: query
+                  type: string
+                  required: false
+                  description: User ID
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page size
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page offset
+        - name: v1-admin-user-connections-id
+          path: /v1/admin/user_connections/{id}
+          operations:
+            - name: auth-connections-delete
+              method: DELETE
+              description: Delete Auth Connection
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Connection ID
+        - name: v1-workers
+          path: /v1/workers
+          operations:
+            - name: workers-list
+              method: GET
+              description: List All Workers
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: 'Number of items to return (default: 25, max: 100)'
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: 'Offset from the start of the list (default: 0)'
+            - name: workers-create
+              method: POST
+              description: Create a Worker
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-workers-test
+          path: /v1/workers/test
+          operations:
+            - name: workers-test
+              method: POST
+              description: Test a Worker Connection
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-workers-id
+          path: /v1/workers/{id}
+          operations:
+            - name: workers-get
+              method: GET
+              description: Get a Worker by ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Worker ID
+            - name: workers-delete
+              method: DELETE
+              description: Delete a Worker
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Worker ID
+            - name: workers-update
+              method: PATCH
+              description: Update a Worker
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Worker ID
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+        - name: v1-workers-id-authorize
+          path: /v1/workers/{id}/authorize
+          operations:
+            - name: workers-authorize
+              method: GET
+              description: Authorize a Worker
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Worker ID
+        - name: v1-workers-id-health
+          path: /v1/workers/{id}/health
+          operations:
+            - name: workers-health
+              method: GET
+              description: Get the Health of a Worker
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Worker ID
+        - name: v1-workers-id-tools
+          path: /v1/workers/{id}/tools
+          operations:
+            - name: tools-list
+              method: GET
+              description: List Tools
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Worker ID
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: 'Number of items to return (default: 25, max: 100)'
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: 'Offset from the start of the list (default: 0)'
+  exposes:
+    - type: rest
+      namespace: engine-admin-rest
+      port: 8080
+      description: REST adapter for Arcade Engine — Admin. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/admin/auth-providers
+          name: v1-admin-auth-providers
+          description: REST surface for /v1/admin/auth-providers.
+          operations:
+            - method: GET
+              name: auth-providers-list
+              description: List Auth Providers
+              call: engine-admin.auth-providers-list
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: auth-providers-create
+              description: Create an Auth Provider
+              call: engine-admin.auth-providers-create
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/admin/auth-providers/{id}
+          name: v1-admin-auth-providers-id
+          description: REST surface for /v1/admin/auth-providers/{id}.
+          operations:
+            - method: GET
+              name: auth-providers-get
+              description: Get an Auth Provider
+              call: engine-admin.auth-providers-get
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: DELETE
+              name: auth-providers-delete
+              description: Delete an Auth Provider
+              call: engine-admin.auth-providers-delete
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PATCH
+              name: auth-providers-update
+              description: Patch an Auth Provider
+              call: engine-admin.auth-providers-update
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/admin/secrets
+          name: v1-admin-secrets
+          description: REST surface for /v1/admin/secrets.
+          operations:
+            - method: GET
+              name: secrets-list
+              description: List Secrets
+              call: engine-admin.secrets-list
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/admin/secrets/{secret-id}
+          name: v1-admin-secrets-secret-id
+          description: REST surface for /v1/admin/secrets/{secret-id}.
+          operations:
+            - method: DELETE
+              name: secrets-delete
+              description: Delete Secret
+              call: engine-admin.secrets-delete
+              with:
+                secret_id: rest.secret_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/admin/secrets/{secret-key}
+          name: v1-admin-secrets-secret-key
+          description: REST surface for /v1/admin/secrets/{secret-key}.
+          operations:
+            - method: POST
+              name: secrets-upsert
+              description: Upsert Secret
+              call: engine-admin.secrets-upsert
+              with:
+                secret_key: rest.secret_key
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/admin/settings/session-verification
+          name: v1-admin-settings-session-verification
+          description: REST surface for /v1/admin/settings/session-verification.
+          operations:
+            - method: GET
+              name: session-verification-settings-get
+              description: Get Session Verification Settings
+              call: engine-admin.session-verification-settings-get
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PUT
+              name: session-verification-settings-update
+              description: Update Session Verification Settings
+              call: engine-admin.session-verification-settings-update
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/admin/user-connections
+          name: v1-admin-user-connections
+          description: REST surface for /v1/admin/user-connections.
+          operations:
+            - method: GET
+              name: auth-connections-list
+              description: List Auth Connections
+              call: engine-admin.auth-connections-list
+              with:
+                provider_id: rest.provider_id
+                user_id: rest.user_id
+                limit: rest.limit
+                offset: rest.offset
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/admin/user-connections/{id}
+          name: v1-admin-user-connections-id
+          description: REST surface for /v1/admin/user-connections/{id}.
+          operations:
+            - method: DELETE
+              name: auth-connections-delete
+              description: Delete Auth Connection
+              call: engine-admin.auth-connections-delete
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/workers
+          name: v1-workers
+          description: REST surface for /v1/workers.
+          operations:
+            - method: GET
+              name: workers-list
+              description: List All Workers
+              call: engine-admin.workers-list
+              with:
+                limit: rest.limit
+                offset: rest.offset
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: workers-create
+              description: Create a Worker
+              call: engine-admin.workers-create
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/workers/test
+          name: v1-workers-test
+          description: REST surface for /v1/workers/test.
+          operations:
+            - method: POST
+              name: workers-test
+              description: Test a Worker Connection
+              call: engine-admin.workers-test
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/workers/{id}
+          name: v1-workers-id
+          description: REST surface for /v1/workers/{id}.
+          operations:
+            - method: GET
+              name: workers-get
+              description: Get a Worker by ID
+              call: engine-admin.workers-get
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: DELETE
+              name: workers-delete
+              description: Delete a Worker
+              call: engine-admin.workers-delete
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PATCH
+              name: workers-update
+              description: Update a Worker
+              call: engine-admin.workers-update
+              with:
+                id: rest.id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/workers/{id}/authorize
+          name: v1-workers-id-authorize
+          description: REST surface for /v1/workers/{id}/authorize.
+          operations:
+            - method: GET
+              name: workers-authorize
+              description: Authorize a Worker
+              call: engine-admin.workers-authorize
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/workers/{id}/health
+          name: v1-workers-id-health
+          description: REST surface for /v1/workers/{id}/health.
+          operations:
+            - method: GET
+              name: workers-health
+              description: Get the Health of a Worker
+              call: engine-admin.workers-health
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/workers/{id}/tools
+          name: v1-workers-id-tools
+          description: REST surface for /v1/workers/{id}/tools.
+          operations:
+            - method: GET
+              name: tools-list
+              description: List Tools
+              call: engine-admin.tools-list
+              with:
+                id: rest.id
+                limit: rest.limit
+                offset: rest.offset
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: engine-admin-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Arcade Engine — Admin. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: list-auth-providers
+          description: List Auth Providers
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.auth-providers-list
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: create-auth-provider
+          description: Create an Auth Provider
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: engine-admin.auth-providers-create
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-auth-provider
+          description: Get an Auth Provider
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.auth-providers-get
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-auth-provider
+          description: Delete an Auth Provider
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: engine-admin.auth-providers-delete
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: patch-auth-provider
+          description: Patch an Auth Provider
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: engine-admin.auth-providers-update
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: list-secrets
+          description: List Secrets
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.secrets-list
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-secret
+          description: Delete Secret
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: engine-admin.secrets-delete
+          with:
+            secret_id: tools.secret_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: upsert-secret
+          description: Upsert Secret
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: engine-admin.secrets-upsert
+          with:
+            secret_key: tools.secret_key
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-session-verification-settings
+          description: Get Session Verification Settings
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.session-verification-settings-get
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-session-verification-settings
+          description: Update Session Verification Settings
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: engine-admin.session-verification-settings-update
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: list-auth-connections
+          description: List Auth Connections
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.auth-connections-list
+          with:
+            provider_id: tools.provider_id
+            user_id: tools.user_id
+            limit: tools.limit
+            offset: tools.offset
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-auth-connection
+          description: Delete Auth Connection
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: engine-admin.auth-connections-delete
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: list-all-workers
+          description: List All Workers
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.workers-list
+          with:
+            limit: tools.limit
+            offset: tools.offset
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: create-worker
+          description: Create a Worker
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: engine-admin.workers-create
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: test-worker-connection
+          description: Test a Worker Connection
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: false
+          call: engine-admin.workers-test
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-worker-id
+          description: Get a Worker by ID
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.workers-get
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: delete-worker
+          description: Delete a Worker
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: engine-admin.workers-delete
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-worker
+          description: Update a Worker
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: engine-admin.workers-update
+          with:
+            id: tools.id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: authorize-worker
+          description: Authorize a Worker
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.workers-authorize
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-health-worker
+          description: Get the Health of a Worker
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.workers-health
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: list-tools
+          description: List Tools
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: engine-admin.tools-list
+          with:
+            id: tools.id
+            limit: tools.limit
+            offset: tools.offset
+          outputParameters:
+            - type: object
+              mapping: $.

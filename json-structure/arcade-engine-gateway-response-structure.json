@@ -1,0 +1,106 @@
+{
+  "$id": "https://github.com/api-evangelist/arcade/json-structure/arcade-engine-gateway-response-structure.json",
+  "name": "arcade-engine-gateway-response",
+  "title": "Arcade Engine GatewayResponse Structure",
+  "description": "Structural projection of the GatewayResponse resource of the Arcade Engine API.",
+  "type": "object",
+  "properties": {
+    "allowed_passthrough_headers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "auth_type": {
+      "type": "string"
+    },
+    "binding": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "static",
+            "tenant",
+            "project",
+            "account"
+          ],
+          "x-enum-varnames": [
+            "StaticBindingType",
+            "TenantBindingType",
+            "ProjectBindingType",
+            "AccountBindingType"
+          ]
+        }
+      }
+    },
+    "consent_skip_client_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "instructions": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "tool_filter": {
+      "type": "object",
+      "properties": {
+        "allowed_tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "discovery": {
+          "type": "object",
+          "properties": {
+            "allowed_classes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "pinned_asset_keys": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "user_source_id": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

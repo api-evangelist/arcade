@@ -1,0 +1,11 @@
+{
+  "operation": "session-verification-settings-get",
+  "method": "GET",
+  "path": "/v1/admin/settings/session_verification",
+  "summary": "Get Session Verification Settings",
+  "response": {
+    "unsafe_skip_verification": true,
+    "unsafe_skip_verification_choice_allowed": true,
+    "verifier_url": "string"
+  }
+}

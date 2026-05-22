@@ -1,0 +1,29 @@
+{
+  "operation": "hooks-update",
+  "method": "PATCH",
+  "path": "/v1/hooks/{hook_id}",
+  "summary": "Update a Hook",
+  "request": {
+    "failure_mode": "fail_closed",
+    "phase": "before",
+    "priority": 1,
+    "status": "active",
+    "timeout_ms": 1
+  },
+  "response": {
+    "cache_enabled": true,
+    "cache_ttl_ms": 1,
+    "created_at": "string",
+    "failure_mode": "fail_closed",
+    "hook_point": "string",
+    "id": "string",
+    "name": "string",
+    "phase": "before",
+    "plugin_id": "string",
+    "priority": 1,
+    "status": "active",
+    "timeout_ms": 1,
+    "updated_at": "string",
+    "version": 1
+  }
+}

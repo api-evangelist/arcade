@@ -1,0 +1,52 @@
+{
+  "operation": "plugins-update",
+  "method": "PATCH",
+  "path": "/v1/plugins/{plugin_id}",
+  "summary": "Update a Plugin",
+  "request": {
+    "description": "string",
+    "name": "string",
+    "retry": {
+      "backoff": "fixed",
+      "base_delay_ms": 1,
+      "enabled": true,
+      "max_attempts": 1,
+      "retry_on": []
+    },
+    "status": "inactive",
+    "webhook_config": {
+      "auth": null,
+      "endpoints": null,
+      "health_check_path": "string"
+    }
+  },
+  "response": {
+    "binding": {
+      "id": "string",
+      "type": null
+    },
+    "created_at": "string",
+    "created_by": "string",
+    "description": "string",
+    "health_status": "string",
+    "id": "string",
+    "name": "string",
+    "plugin_type": "string",
+    "retry": {
+      "backoff": "string",
+      "base_delay_ms": 1,
+      "enabled": true,
+      "max_attempts": 1,
+      "retry_on": []
+    },
+    "status": "inactive",
+    "updated_at": "string",
+    "updated_by": "string",
+    "version": 1,
+    "webhook_config": {
+      "auth": null,
+      "endpoints": null,
+      "health_check_path": "string"
+    }
+  }
+}

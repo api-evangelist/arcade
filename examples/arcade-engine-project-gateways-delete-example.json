@@ -1,0 +1,6 @@
+{
+  "operation": "project-gateways-delete",
+  "method": "DELETE",
+  "path": "/v1/orgs/{org_id}/projects/{project_id}/gateways/{gateway_id}",
+  "summary": "Delete a Gateway"
+}

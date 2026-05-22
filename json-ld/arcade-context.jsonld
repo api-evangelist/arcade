@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "@vocab": "https://api-evangelist.github.io/arcade/vocab#",
+    "schema": "https://schema.org/",
+    "arcade": "https://api-evangelist.github.io/arcade/vocab#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "identifier": "schema:identifier",
+    "version": "schema:version",
+    "created": "dcterms:created",
+    "modified": "dcterms:modified",
+
+    "Engine": "arcade:Engine",
+    "Tool": "arcade:Tool",
+    "Toolkit": "arcade:Toolkit",
+    "ToolDefinition": "arcade:ToolDefinition",
+    "ToolExecution": "arcade:ToolExecution",
+    "AuthProvider": "arcade:AuthProvider",
+    "Authorization": "arcade:Authorization",
+    "Worker": "arcade:Worker",
+    "Hook": "arcade:Hook",
+    "Plugin": "arcade:Plugin",
+    "Gateway": "arcade:Gateway",
+    "MCPServer": "arcade:MCPServer",
+    "Agent": "arcade:Agent",
+    "ScheduledTool": "arcade:ScheduledTool",
+    "Secret": "arcade:Secret",
+    "Project": "arcade:Project",
+    "Organization": "arcade:Organization",
+
+    "tools": { "@id": "arcade:tools", "@container": "@set" },
+    "toolkits": { "@id": "arcade:toolkits", "@container": "@set" },
+    "authProvider": { "@id": "arcade:authProvider", "@type": "@id" },
+    "scopes": { "@id": "arcade:scopes", "@container": "@set" },
+    "executions": { "@id": "arcade:executions", "@container": "@set" },
+    "hookPoint": "arcade:hookPoint",
+    "phase": "arcade:phase",
+    "transport": "arcade:transport",
+    "runtime": "arcade:runtime",
+
+    "inputParameters": { "@id": "arcade:inputParameters", "@container": "@set" },
+    "outputParameters": { "@id": "arcade:outputParameters", "@container": "@set" },
+    "requirements": { "@id": "arcade:requirements", "@container": "@set" },
+
+    "status": "arcade:status",
+    "callId": "arcade:callId",
+    "startedAt": { "@id": "arcade:startedAt", "@type": "schema:DateTime" },
+    "finishedAt": { "@id": "arcade:finishedAt", "@type": "schema:DateTime" },
+
+    "owner": { "@id": "schema:provider", "@type": "@id" },
+    "provider": { "@id": "schema:provider", "@type": "@id" }
+  }
+}

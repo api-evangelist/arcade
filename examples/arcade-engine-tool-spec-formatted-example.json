@@ -1,0 +1,7 @@
+{
+  "operation": "tool-spec-formatted",
+  "method": "GET",
+  "path": "/v1/formatted_tools/{name}",
+  "summary": "Get Formatted Tool Specification",
+  "response": {}
+}

@@ -1,0 +1,221 @@
+{
+  "$id": "https://github.com/api-evangelist/arcade/json-structure/arcade-engine-tool-response-structure.json",
+  "name": "arcade-engine-tool-response",
+  "title": "Arcade Engine ToolResponse Structure",
+  "description": "Structural projection of the ToolResponse resource of the Arcade Engine API.",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "formatted_schema": {
+      "type": "object",
+      "additionalProperties": {}
+    },
+    "fully_qualified_name": {
+      "type": "string"
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "value_schema"
+            ],
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "inferrable": {
+                "type": "boolean",
+                "default": true
+              },
+              "name": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "value_schema": {
+                "$ref": "#/components/schemas/schemas.ValueSchema"
+              }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "behavior": {
+          "type": "object",
+          "properties": {
+            "destructive": {
+              "type": "boolean"
+            },
+            "idempotent": {
+              "type": "boolean"
+            },
+            "open_world": {
+              "type": "boolean"
+            },
+            "operations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "read_only": {
+              "type": "boolean"
+            }
+          }
+        },
+        "classification": {
+          "type": "object",
+          "properties": {
+            "service_domains": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "extras": {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      }
+    },
+    "name": {
+      "type": "string"
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "available_modes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "value_schema": {
+          "type": "object",
+          "required": [
+            "val_type"
+          ],
+          "properties": {
+            "enum": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "inner_val_type": {
+              "type": "string"
+            },
+            "val_type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "qualified_name": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "authorization": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "oauth2": {
+              "$ref": "#/components/schemas/schemas.OAuth2AuthorizationRequirement"
+            },
+            "provider_id": {
+              "type": "string"
+            },
+            "provider_type": {
+              "type": "string"
+            },
+            "status": {
+              "default": "disabled",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/auth.Status"
+                }
+              ]
+            },
+            "status_reason": {
+              "type": "string"
+            },
+            "token_status": {
+              "$ref": "#/components/schemas/auth.AuthorizationStatus"
+            }
+          }
+        },
+        "met": {
+          "type": "boolean",
+          "default": false
+        },
+        "secrets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "key"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "met": {
+                "type": "boolean",
+                "default": false
+              },
+              "status_reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "toolkit": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "fully_qualified_name",
+    "input",
+    "name",
+    "qualified_name",
+    "toolkit"
+  ]
+}
