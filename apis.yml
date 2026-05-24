@@ -386,6 +386,8 @@ common:
       - name: Startup Program
         description: "Custom pricing for companies under 100 employees, nonprofits, and educational institutions via contact@arcade.dev."
 
+  - type: LLMsTxt
+    url: https://docs.arcade.dev/llms.txt
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
