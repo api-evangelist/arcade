@@ -52,24 +52,24 @@ apis:
         url: rules/arcade-engine-rules.yml
       - type: Authentication
         url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
-      - type: Quickstart
+      - type: GettingStarted
         url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
-      - type: Quickstart
+      - type: GettingStarted
         url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
         title: MCP Server Quickstart
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ArcadeAI/arcade-py
         title: Official Arcade Python Client (arcade-py)
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ArcadeAI/arcade-js
         title: Arcade NodeJS / TypeScript Client (arcade-js)
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ArcadeAI/arcade-go
         title: Official Arcade Go Client (arcade-go)
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ArcadeAI/arcade-java
         title: Arcade Java/Kotlin Client (arcade-java)
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ArcadeAI/arcade-dotnet
         title: Arcade .NET Client (arcade-dotnet)
       - type: CLI
@@ -176,7 +176,7 @@ apis:
         url: https://github.com/ArcadeAI/arcade-mcp
       - type: Documentation
         url: https://docs.arcade.dev/en/references/mcp/python
-      - type: SDK
+      - type: SDKs
         url: https://pypi.org/project/arcade-mcp/
         title: arcade-mcp on PyPI
       - type: CLI
@@ -205,7 +205,7 @@ common:
     url: https://arcade.dev
   - type: DeveloperPortal
     url: https://docs.arcade.dev
-  - type: SignUp
+  - type: Signup
     url: https://api.arcade.dev/dashboard
   - type: Console
     url: https://api.arcade.dev/dashboard
@@ -334,7 +334,7 @@ common:
         description: >-
           Custom pricing for companies under 100 employees, nonprofits, and educational institutions via
           contact@arcade.dev.
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.arcade.dev/llms.txt
 maintainers:
   - FN: Kin Lane
