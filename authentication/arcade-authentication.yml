@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/arcade-engine-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: Bearer
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'Enter your API key or API token in the format: Bearer <token>'
+  sources:
+  - openapi/arcade-engine-openapi.yml

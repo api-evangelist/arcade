@@ -201,6 +201,10 @@ apis:
       - type: Resources
         url: https://docs.arcade.dev/en/resources/examples
 common:
+  - type: DomainSecurity
+    url: security/arcade-domain-security.yml
+  - type: Authentication
+    url: authentication/arcade-authentication.yml
   - type: Portal
     url: https://arcade.dev
   - type: DeveloperPortal
