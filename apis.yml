@@ -201,6 +201,8 @@ apis:
       - type: Resources
         url: https://docs.arcade.dev/en/resources/examples
 common:
+  - type: AgenticAccess
+    url: agentic-access/arcade-agentic-access.yml
   - type: DomainSecurity
     url: security/arcade-domain-security.yml
   - type: Authentication
