@@ -9,6 +9,19 @@ description: >
 url: https://github.com/api-evangelist/arcade
 humanURL: https://arcade.dev
 baseURL: https://api.arcade.dev
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://avatars.githubusercontent.com/u/161780576
 tags:
   - Agents
@@ -25,181 +38,754 @@ modified: '2026-05-22'
 specificationVersion: '0.18'
 type: Index
 apis:
-  - name: Arcade Engine API
-    description: >
-      The Arcade Engine HTTP API — the control plane for tool catalogs, user authorization flows, tool execution,
-      scheduled tools, MCP gateways, workers, hooks, plugins, and admin operations. Tagged surfaces are Admin,
-      Authorization, Tools, LLM, Operations, Hooks, Gateways, and Plugins.
-    humanURL: https://docs.arcade.dev/en/references/api
-    baseURL: https://api.arcade.dev
-    image: https://avatars.githubusercontent.com/u/161780576
-    tags:
-      - Engine
-      - Tool Calling
-      - Authorization
-      - MCP Runtime
-    properties:
-      - type: Documentation
-        url: https://docs.arcade.dev
-      - type: APIReference
-        url: https://docs.arcade.dev/en/references/api
-      - type: OpenAPI
-        url: openapi/arcade-engine-openapi.yml
-      - type: OpenAPI
-        url: https://api.arcade.dev/v1/swagger
-        title: Live Arcade Engine OpenAPI 3.0 spec
-      - type: SpectralRules
-        url: rules/arcade-engine-rules.yml
-      - type: Authentication
-        url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
-      - type: GettingStarted
-        url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
-      - type: GettingStarted
-        url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
-        title: MCP Server Quickstart
-      - type: SDKs
-        url: https://github.com/ArcadeAI/arcade-py
-        title: Official Arcade Python Client (arcade-py)
-      - type: SDKs
-        url: https://github.com/ArcadeAI/arcade-js
-        title: Arcade NodeJS / TypeScript Client (arcade-js)
-      - type: SDKs
-        url: https://github.com/ArcadeAI/arcade-go
-        title: Official Arcade Go Client (arcade-go)
-      - type: SDKs
-        url: https://github.com/ArcadeAI/arcade-java
-        title: Arcade Java/Kotlin Client (arcade-java)
-      - type: SDKs
-        url: https://github.com/ArcadeAI/arcade-dotnet
-        title: Arcade .NET Client (arcade-dotnet)
-      - type: CLI
-        url: https://docs.arcade.dev/en/references/arcade-cli
-        title: arcade CLI (installed via `uv tool install arcade-mcp` or `pip install arcade-mcp`)
-      - type: ChangeLog
-        url: https://docs.arcade.dev/en/references/changelog
-      - type: JSONSchema
-        url: json-schema/arcade-engine-tool-response-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-tool-execution-detail-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-execute-tool-request-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-execute-tool-response-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-authorize-tool-request-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-authorization-response-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-auth-provider-response-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-worker-response-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-hook-response-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-gateway-response-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-plugin-response-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-engine-secret-response-schema.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-tool-response-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-tool-execution-detail-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-execute-tool-request-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-execute-tool-response-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-authorize-tool-request-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-authorization-response-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-auth-provider-response-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-worker-response-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-hook-response-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-gateway-response-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-plugin-response-structure.json
-      - type: JSONStructure
-        url: json-structure/arcade-engine-secret-response-structure.json
-  - name: Arcade Public Schemas
-    description: >
-      The ArcadeAI/schemas repo on GitHub publishes versioned JSON Schemas for the Arcade engine configuration (1.0 and
-      2.0) and the worker HTTP contracts (1.0) — tool_definition, execute_tool_request, and execute_tool_response — used
-      by every Arcade worker.
-    humanURL: https://github.com/ArcadeAI/schemas
-    baseURL: https://github.com/ArcadeAI/schemas
-    image: https://avatars.githubusercontent.com/u/161780576
-    tags:
-      - Schemas
-      - JSON Schema
-      - Worker Protocol
-    properties:
-      - type: Documentation
-        url: https://github.com/ArcadeAI/schemas
-      - type: GitHubRepository
-        url: https://github.com/ArcadeAI/schemas
-      - type: JSONSchema
-        url: json-schema/arcade-tool-definition-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-execute-tool-request-schema.json
-      - type: JSONSchema
-        url: json-schema/arcade-execute-tool-response-schema.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/ArcadeAI/schemas/main/worker/http/1.0/tool_definition.schema.json
-        title: Upstream tool_definition.schema.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/ArcadeAI/schemas/main/engine/config/1.0/schema.json
-        title: Upstream engine config 1.0 schema
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/ArcadeAI/schemas/main/engine/config/2.0/schema.json
-        title: Upstream engine config 2.0 schema
-  - name: Arcade MCP Framework
-    description: >
-      The arcade-mcp open-source Python framework — "MCP Server Framework and Tool Development library for building
-      custom capabilities into agents." Provides the `arcade` CLI (login, new, show, evals, mcp, deploy, configure,
-      server, secret) and the Python building blocks for writing custom MCP servers and tools. MIT-licensed, 898 stars
-      at profile time.
-    humanURL: https://github.com/ArcadeAI/arcade-mcp
-    baseURL: https://github.com/ArcadeAI/arcade-mcp
-    image: https://avatars.githubusercontent.com/u/161780576
-    tags:
-      - MCP Server
-      - Framework
-      - Python
-      - Open Source
-    properties:
-      - type: GitHubRepository
-        url: https://github.com/ArcadeAI/arcade-mcp
-      - type: Documentation
-        url: https://docs.arcade.dev/en/references/mcp/python
-      - type: SDKs
-        url: https://pypi.org/project/arcade-mcp/
-        title: arcade-mcp on PyPI
-      - type: CLI
-        url: https://docs.arcade.dev/en/references/arcade-cli
-  - name: Arcade Integration Catalog
-    description: >
-      The Arcade integration catalog — 145 MCP servers across Arcade Optimized, Arcade Unoptimized, Verified, Community,
-      and Auth Provider designations, with 37 additional "Coming Soon" integrations including Shopify, Snowflake, and
-      QuickBooks. Categories include Productivity & Docs, Social & Communication, Developer Tools, Payments & Finance,
-      Search, Sales, Databases, and Customer Support.
-    humanURL: https://docs.arcade.dev/en/resources/integrations
-    image: https://avatars.githubusercontent.com/u/161780576
-    tags:
-      - Integrations
-      - Toolkits
-      - MCP Servers
-    properties:
-      - type: Documentation
-        url: https://docs.arcade.dev/en/resources/integrations
-      - type: Resources
-        url: https://docs.arcade.dev/en/resources/tools
-      - type: Resources
-        url: https://docs.arcade.dev/en/resources/examples
+- name: Arcade Public Schemas
+  description: >
+    The ArcadeAI/schemas repo on GitHub publishes versioned JSON Schemas for the Arcade engine configuration
+    (1.0 and 2.0) and the worker HTTP contracts (1.0) — tool_definition, execute_tool_request, and execute_tool_response
+    — used by every Arcade worker.
+  humanURL: https://github.com/ArcadeAI/schemas
+  baseURL: https://github.com/ArcadeAI/schemas
+  image: https://avatars.githubusercontent.com/u/161780576
+  tags:
+  - Schemas
+  - JSON Schema
+  - Worker Protocol
+  properties:
+  - type: Documentation
+    url: https://github.com/ArcadeAI/schemas
+  - type: GitHubRepository
+    url: https://github.com/ArcadeAI/schemas
+  - type: JSONSchema
+    url: json-schema/arcade-tool-definition-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/ArcadeAI/schemas/main/worker/http/1.0/tool_definition.schema.json
+    title: Upstream tool_definition.schema.json
+  - type: JSONSchema
+    url: https://raw.githubusercontent.com/ArcadeAI/schemas/main/engine/config/1.0/schema.json
+    title: Upstream engine config 1.0 schema
+  - type: JSONSchema
+    url: https://raw.githubusercontent.com/ArcadeAI/schemas/main/engine/config/2.0/schema.json
+    title: Upstream engine config 2.0 schema
+- name: Arcade MCP Framework
+  description: >
+    The arcade-mcp open-source Python framework — "MCP Server Framework and Tool Development library for
+    building custom capabilities into agents." Provides the `arcade` CLI (login, new, show, evals, mcp,
+    deploy, configure, server, secret) and the Python building blocks for writing custom MCP servers and
+    tools. MIT-licensed, 898 stars at profile time.
+  humanURL: https://github.com/ArcadeAI/arcade-mcp
+  baseURL: https://github.com/ArcadeAI/arcade-mcp
+  image: https://avatars.githubusercontent.com/u/161780576
+  tags:
+  - MCP Server
+  - Framework
+  - Python
+  - Open Source
+  properties:
+  - type: GitHubRepository
+    url: https://github.com/ArcadeAI/arcade-mcp
+  - type: Documentation
+    url: https://docs.arcade.dev/en/references/mcp/python
+  - type: SDKs
+    url: https://pypi.org/project/arcade-mcp/
+    title: arcade-mcp on PyPI
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+- name: Arcade Integration Catalog
+  description: >
+    The Arcade integration catalog — 145 MCP servers across Arcade Optimized, Arcade Unoptimized, Verified,
+    Community, and Auth Provider designations, with 37 additional "Coming Soon" integrations including
+    Shopify, Snowflake, and QuickBooks. Categories include Productivity & Docs, Social & Communication,
+    Developer Tools, Payments & Finance, Search, Sales, Databases, and Customer Support.
+  humanURL: https://docs.arcade.dev/en/resources/integrations
+  image: https://avatars.githubusercontent.com/u/161780576
+  tags:
+  - Integrations
+  - Toolkits
+  - MCP Servers
+  properties:
+  - type: Documentation
+    url: https://docs.arcade.dev/en/resources/integrations
+  - type: Resources
+    url: https://docs.arcade.dev/en/resources/tools
+  - type: Resources
+    url: https://docs.arcade.dev/en/resources/examples
+- aid: arcade:arcade-admin-api
+  name: Arcade Admin API
+  description: The Admin API from Arcade — 14 operation(s) for admin.
+  humanURL: https://docs.arcade.dev/en/references/api
+  baseURL: https://api.arcade.dev
+  tags:
+  - Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/arcade-admin-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcade.dev
+  - type: APIReference
+    url: https://docs.arcade.dev/en/references/api
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+  - type: Authentication
+    url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-py
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-js
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-go
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-java
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-dotnet
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-execution-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorize-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-auth-provider-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-hook-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-gateway-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-secret-response-schema.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-execution-detail-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorize-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorization-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-auth-provider-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-worker-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-hook-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-gateway-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-plugin-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-secret-response-structure.json
+- aid: arcade:arcade-authorization-api
+  name: Arcade Authorization API
+  description: The Authorization API from Arcade — 4 operation(s) for authorization.
+  humanURL: https://docs.arcade.dev/en/references/api
+  baseURL: https://api.arcade.dev
+  tags:
+  - Authorization
+  properties:
+  - type: OpenAPI
+    url: openapi/arcade-authorization-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcade.dev
+  - type: APIReference
+    url: https://docs.arcade.dev/en/references/api
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+  - type: Authentication
+    url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-py
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-js
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-go
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-java
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-dotnet
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-execution-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorize-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-auth-provider-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-hook-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-gateway-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-secret-response-schema.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-execution-detail-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorize-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorization-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-auth-provider-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-worker-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-hook-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-gateway-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-plugin-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-secret-response-structure.json
+- aid: arcade:arcade-gateways-api
+  name: Arcade Gateways API
+  description: The Gateways API from Arcade — 3 operation(s) for gateways.
+  humanURL: https://docs.arcade.dev/en/references/api
+  baseURL: https://api.arcade.dev
+  tags:
+  - Gateways
+  properties:
+  - type: OpenAPI
+    url: openapi/arcade-gateways-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcade.dev
+  - type: APIReference
+    url: https://docs.arcade.dev/en/references/api
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+  - type: Authentication
+    url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-py
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-js
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-go
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-java
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-dotnet
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-execution-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorize-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-auth-provider-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-hook-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-gateway-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-secret-response-schema.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-execution-detail-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorize-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorization-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-auth-provider-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-worker-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-hook-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-gateway-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-plugin-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-secret-response-structure.json
+- aid: arcade:arcade-hooks-api
+  name: Arcade Hooks API
+  description: The Hooks API from Arcade — 3 operation(s) for hooks.
+  humanURL: https://docs.arcade.dev/en/references/api
+  baseURL: https://api.arcade.dev
+  tags:
+  - Hooks
+  properties:
+  - type: OpenAPI
+    url: openapi/arcade-hooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcade.dev
+  - type: APIReference
+    url: https://docs.arcade.dev/en/references/api
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+  - type: Authentication
+    url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-py
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-js
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-go
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-java
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-dotnet
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-execution-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorize-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-auth-provider-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-hook-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-gateway-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-secret-response-schema.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-execution-detail-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorize-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorization-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-auth-provider-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-worker-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-hook-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-gateway-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-plugin-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-secret-response-structure.json
+- aid: arcade:arcade-llm-api
+  name: Arcade LLM API
+  description: The LLM API from Arcade — 1 operation(s) for llm.
+  humanURL: https://docs.arcade.dev/en/references/api
+  baseURL: https://api.arcade.dev
+  tags:
+  - LLM
+  properties:
+  - type: OpenAPI
+    url: openapi/arcade-llm-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcade.dev
+  - type: APIReference
+    url: https://docs.arcade.dev/en/references/api
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+  - type: Authentication
+    url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-py
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-js
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-go
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-java
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-dotnet
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-execution-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorize-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-auth-provider-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-hook-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-gateway-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-secret-response-schema.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-execution-detail-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorize-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorization-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-auth-provider-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-worker-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-hook-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-gateway-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-plugin-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-secret-response-structure.json
+- aid: arcade:arcade-operations-api
+  name: Arcade Operations API
+  description: The Operations API from Arcade — 3 operation(s) for operations.
+  humanURL: https://docs.arcade.dev/en/references/api
+  baseURL: https://api.arcade.dev
+  tags:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/arcade-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcade.dev
+  - type: APIReference
+    url: https://docs.arcade.dev/en/references/api
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+  - type: Authentication
+    url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-py
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-js
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-go
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-java
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-dotnet
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-execution-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorize-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-auth-provider-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-hook-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-gateway-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-secret-response-schema.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-execution-detail-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorize-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorization-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-auth-provider-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-worker-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-hook-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-gateway-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-plugin-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-secret-response-structure.json
+- aid: arcade:arcade-plugins-api
+  name: Arcade Plugins API
+  description: The Plugins API from Arcade — 2 operation(s) for plugins.
+  humanURL: https://docs.arcade.dev/en/references/api
+  baseURL: https://api.arcade.dev
+  tags:
+  - Plugins
+  properties:
+  - type: OpenAPI
+    url: openapi/arcade-plugins-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcade.dev
+  - type: APIReference
+    url: https://docs.arcade.dev/en/references/api
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+  - type: Authentication
+    url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-py
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-js
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-go
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-java
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-dotnet
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-execution-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorize-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-auth-provider-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-hook-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-gateway-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-secret-response-schema.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-execution-detail-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorize-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorization-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-auth-provider-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-worker-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-hook-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-gateway-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-plugin-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-secret-response-structure.json
+- aid: arcade:arcade-tools-api
+  name: Arcade Tools API
+  description: The Tools API from Arcade — 9 operation(s) for tools.
+  humanURL: https://docs.arcade.dev/en/references/api
+  baseURL: https://api.arcade.dev
+  tags:
+  - Tools
+  properties:
+  - type: OpenAPI
+    url: openapi/arcade-tools-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcade.dev
+  - type: APIReference
+    url: https://docs.arcade.dev/en/references/api
+  - type: SpectralRules
+    url: rules/arcade-engine-rules.yml
+  - type: Authentication
+    url: https://docs.arcade.dev/guides/tool-calling/custom-apps/auth-tool-calling
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/call-tool-agent
+  - type: GettingStarted
+    url: https://docs.arcade.dev/en/get-started/quickstarts/mcp-server-quickstart
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-py
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-js
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-go
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-java
+  - type: SDKs
+    url: https://github.com/ArcadeAI/arcade-dotnet
+  - type: CLI
+    url: https://docs.arcade.dev/en/references/arcade-cli
+  - type: ChangeLog
+    url: https://docs.arcade.dev/en/references/changelog
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-tool-execution-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-execute-tool-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorize-tool-request-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-authorization-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-auth-provider-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-hook-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-gateway-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/arcade-engine-secret-response-schema.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-tool-execution-detail-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-execute-tool-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorize-tool-request-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-authorization-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-auth-provider-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-worker-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-hook-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-gateway-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-plugin-response-structure.json
+  - type: JSONStructure
+    url: json-structure/arcade-engine-secret-response-structure.json
 common:
   - type: AgenticAccess
     url: agentic-access/arcade-agentic-access.yml
