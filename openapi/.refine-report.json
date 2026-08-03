@@ -1,0 +1,28 @@
+{
+  "provider": "arcade",
+  "sources": [
+    "arcade-admin-api-openapi.yml",
+    "arcade-authorization-api-openapi.yml",
+    "arcade-gateways-api-openapi.yml",
+    "arcade-hooks-api-openapi.yml",
+    "arcade-llm-api-openapi.yml",
+    "arcade-operations-api-openapi.yml",
+    "arcade-plugins-api-openapi.yml",
+    "arcade-tools-api-openapi.yml"
+  ],
+  "outputs": [
+    "arcade-admin-api-openapi.yml",
+    "arcade-authorization-api-openapi.yml",
+    "arcade-gateways-api-openapi.yml",
+    "arcade-hooks-api-openapi.yml",
+    "arcade-llm-api-openapi.yml",
+    "arcade-operations-api-openapi.yml",
+    "arcade-plugins-api-openapi.yml",
+    "arcade-tools-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
