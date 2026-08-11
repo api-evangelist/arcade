@@ -787,6 +787,11 @@ apis:
   - type: JSONStructure
     url: json-structure/arcade-engine-secret-response-structure.json
 common:
+  - type: IssueTracker
+    url: https://github.com/ArcadeAI/schemas/issues
+  - type: License
+    name: MIT
+    url: https://github.com/ArcadeAI/schemas/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/arcade-agentic-access.yml
   - type: DomainSecurity
