@@ -1,0 +1,1460 @@
+{
+  "item": [
+    {
+      "id": "fbe7bf06-2cd2-4db1-9c26-74b7447b2d2e",
+      "name": "Plugins",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d8a39809-dfc3-4bde-a58e-a89b076cfea3",
+          "name": "List Plugins",
+          "request": {
+            "name": "List Plugins",
+            "description": {
+              "content": "Returns all plugins for the current binding",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "binding_type",
+                  "value": "<string>",
+                  "description": "Binding type filter (e.g., 'tenant')"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "731ac416-3608-42bc-b231-aa5757ee3f4f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "binding_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"binding\": {\n        \"id\": \"string\",\n        \"type\": \"tenant\"\n      },\n      \"created_at\": \"string\",\n      \"created_by\": \"string\",\n      \"description\": \"string\",\n      \"health_status\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"plugin_type\": \"string\",\n      \"retry\": {\n        \"backoff\": \"string\",\n        \"base_delay_ms\": 7308,\n        \"enabled\": false,\n        \"max_attempts\": 2702,\n        \"retry_on\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"status\": \"active\",\n      \"updated_at\": \"string\",\n      \"updated_by\": \"string\",\n      \"version\": 8184,\n      \"webhook_config\": {\n        \"auth\": {\n          \"ca_cert\": \"string\",\n          \"client_cert_configured\": false,\n          \"client_key_configured\": false,\n          \"token\": {\n            \"binding\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"editable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"exists\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"type\": \"string\"\n        },\n        \"endpoints\": {\n          \"access\": {\n            \"cache_enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cache_ttl_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"post\": {\n            \"cache_enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cache_ttl_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pre\": {\n            \"cache_enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cache_ttl_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"health_check_path\": \"string\"\n      }\n    },\n    {\n      \"binding\": {\n        \"id\": \"string\",\n        \"type\": \"static\"\n      },\n      \"created_at\": \"string\",\n      \"created_by\": \"string\",\n      \"description\": \"string\",\n      \"health_status\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"plugin_type\": \"string\",\n      \"retry\": {\n        \"backoff\": \"string\",\n        \"base_delay_ms\": 4117,\n        \"enabled\": true,\n        \"max_attempts\": 9091,\n        \"retry_on\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"status\": \"active\",\n      \"updated_at\": \"string\",\n      \"updated_by\": \"string\",\n      \"version\": 664,\n      \"webhook_config\": {\n        \"auth\": {\n          \"ca_cert\": \"string\",\n          \"client_cert_configured\": true,\n          \"client_key_configured\": true,\n          \"token\": {\n            \"binding\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"editable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"exists\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"type\": \"string\"\n        },\n        \"endpoints\": {\n          \"access\": {\n            \"cache_enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cache_ttl_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"post\": {\n            \"cache_enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cache_ttl_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"pre\": {\n            \"cache_enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cache_ttl_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout_ms\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"health_check_path\": \"string\"\n      }\n    }\n  ],\n  \"limit\": 973,\n  \"offset\": 1651,\n  \"page_count\": 8961,\n  \"total_count\": 5651\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e86cff55-f1e6-455b-b70b-037e93aa24c8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "binding_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a967f75e-9789-404b-84d2-fef731a376f8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "binding_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8eb633fb-8b06-44a7-8ee3-04ccab824fa3",
+          "name": "Create a Plugin",
+          "request": {
+            "name": "Create a Plugin",
+            "description": {
+              "content": "Creates a new plugin with optional inline hooks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"plugin_type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"endpoints\": {\n      \"access\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"post\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"pre\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      }\n    },\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "363e69ed-669b-44d1-b070-8ea81c678789",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"plugin_type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"endpoints\": {\n      \"access\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"post\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"pre\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      }\n    },\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"binding\": {\n    \"id\": \"string\",\n    \"type\": \"tenant\"\n  },\n  \"created_at\": \"string\",\n  \"created_by\": \"string\",\n  \"description\": \"string\",\n  \"health_status\": \"string\",\n  \"hooks\": [\n    {\n      \"cache_enabled\": false,\n      \"cache_ttl_ms\": 2275,\n      \"created_at\": \"string\",\n      \"failure_mode\": \"<string>\",\n      \"hook_point\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"phase\": \"<string>\",\n      \"plugin_id\": \"string\",\n      \"priority\": 3744,\n      \"status\": \"<string>\",\n      \"timeout_ms\": 5400,\n      \"updated_at\": \"string\",\n      \"version\": 4965\n    },\n    {\n      \"cache_enabled\": false,\n      \"cache_ttl_ms\": 5701,\n      \"created_at\": \"string\",\n      \"failure_mode\": \"<string>\",\n      \"hook_point\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"phase\": \"<string>\",\n      \"plugin_id\": \"string\",\n      \"priority\": 9080,\n      \"status\": \"<string>\",\n      \"timeout_ms\": 8548,\n      \"updated_at\": \"string\",\n      \"version\": 5765\n    }\n  ],\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"plugin_type\": \"string\",\n  \"retry\": {\n    \"backoff\": \"string\",\n    \"base_delay_ms\": 6232,\n    \"enabled\": false,\n    \"max_attempts\": 2846,\n    \"retry_on\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"updated_at\": \"string\",\n  \"updated_by\": \"string\",\n  \"version\": 807,\n  \"webhook_config\": {\n    \"auth\": {\n      \"ca_cert\": \"string\",\n      \"client_cert_configured\": false,\n      \"client_key_configured\": true,\n      \"token\": {\n        \"binding\": \"project\",\n        \"editable\": true,\n        \"exists\": true,\n        \"value\": \"string\"\n      },\n      \"type\": \"string\"\n    },\n    \"endpoints\": {\n      \"access\": {\n        \"cache_enabled\": false,\n        \"cache_ttl_ms\": 765,\n        \"timeout_ms\": 1755,\n        \"url\": \"string\"\n      },\n      \"post\": {\n        \"cache_enabled\": false,\n        \"cache_ttl_ms\": 7456,\n        \"timeout_ms\": 3800,\n        \"url\": \"string\"\n      },\n      \"pre\": {\n        \"cache_enabled\": false,\n        \"cache_ttl_ms\": 5114,\n        \"timeout_ms\": 606,\n        \"url\": \"string\"\n      }\n    },\n    \"health_check_path\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7bf4db3-2ff6-446c-88fc-bc363969be2c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"plugin_type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"endpoints\": {\n      \"access\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"post\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"pre\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      }\n    },\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9022f5e-92c2-4e98-8224-8766b0a19aa9",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"plugin_type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"endpoints\": {\n      \"access\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"post\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"pre\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      }\n    },\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ae6b66b-2d29-44cd-b739-8fbcce67ecd4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"plugin_type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"endpoints\": {\n      \"access\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"post\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      },\n      \"pre\": {\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"url\": \"<string>\",\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\"\n      }\n    },\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2edab37-0636-4cf5-89f6-359f6c81b004",
+          "name": "Get a Plugin",
+          "request": {
+            "name": "Get a Plugin",
+            "description": {
+              "content": "Returns a single plugin by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "plugins",
+                ":plugin_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "plugin_id",
+                  "description": "(Required) Plugin ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e49807dc-1e55-4466-9b2a-c44c9b048663",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"binding\": {\n    \"id\": \"string\",\n    \"type\": \"project\"\n  },\n  \"created_at\": \"string\",\n  \"created_by\": \"string\",\n  \"description\": \"string\",\n  \"health_status\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"plugin_type\": \"string\",\n  \"retry\": {\n    \"backoff\": \"string\",\n    \"base_delay_ms\": 9088,\n    \"enabled\": false,\n    \"max_attempts\": 7132,\n    \"retry_on\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"updated_at\": \"string\",\n  \"updated_by\": \"string\",\n  \"version\": 3930,\n  \"webhook_config\": {\n    \"auth\": {\n      \"ca_cert\": \"string\",\n      \"client_cert_configured\": false,\n      \"client_key_configured\": false,\n      \"token\": {\n        \"binding\": \"project\",\n        \"editable\": true,\n        \"exists\": true,\n        \"value\": \"string\"\n      },\n      \"type\": \"string\"\n    },\n    \"endpoints\": {\n      \"access\": {\n        \"cache_enabled\": false,\n        \"cache_ttl_ms\": 3968,\n        \"timeout_ms\": 7060,\n        \"url\": \"string\"\n      },\n      \"post\": {\n        \"cache_enabled\": false,\n        \"cache_ttl_ms\": 9670,\n        \"timeout_ms\": 1570,\n        \"url\": \"string\"\n      },\n      \"pre\": {\n        \"cache_enabled\": true,\n        \"cache_ttl_ms\": 6905,\n        \"timeout_ms\": 9190,\n        \"url\": \"string\"\n      }\n    },\n    \"health_check_path\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3dd1979-1bf6-4810-8f6b-703dc1f962de",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "991234a7-3ce1-490a-9ef7-3531e2fc57b1",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7deb0f13-806e-4b7e-8200-2e964eae538a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6644725-d78d-43ea-aa4b-1227857d9f18",
+          "name": "Delete a Plugin",
+          "request": {
+            "name": "Delete a Plugin",
+            "description": {
+              "content": "Deletes a plugin by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "plugins",
+                ":plugin_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "plugin_id",
+                  "description": "(Required) Plugin ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "25b8cd08-d090-4459-9cc8-3f9894f6fe07",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa65f20c-ec7e-4a55-aa3e-ab36459efbfd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89890e4b-f722-448b-a197-133521586888",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e3ae79d-522a-4658-9500-eb37fffd87f9",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e523973-c9ca-4a82-8f3b-137513cf353f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2d2ca78-5e27-4c76-9da3-515ff3b05a5f",
+          "name": "Update a Plugin",
+          "request": {
+            "name": "Update a Plugin",
+            "description": {
+              "content": "Updates an existing plugin configuration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "plugins",
+                ":plugin_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "plugin_id",
+                  "description": "(Required) Plugin ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"endpoints\": {\n      \"access\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"post\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"pre\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "149f90f1-c686-4636-baba-c9e469130f46",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"endpoints\": {\n      \"access\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"post\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"pre\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"binding\": {\n    \"id\": \"string\",\n    \"type\": \"project\"\n  },\n  \"created_at\": \"string\",\n  \"created_by\": \"string\",\n  \"description\": \"string\",\n  \"health_status\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"plugin_type\": \"string\",\n  \"retry\": {\n    \"backoff\": \"string\",\n    \"base_delay_ms\": 9088,\n    \"enabled\": false,\n    \"max_attempts\": 7132,\n    \"retry_on\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"updated_at\": \"string\",\n  \"updated_by\": \"string\",\n  \"version\": 3930,\n  \"webhook_config\": {\n    \"auth\": {\n      \"ca_cert\": \"string\",\n      \"client_cert_configured\": false,\n      \"client_key_configured\": false,\n      \"token\": {\n        \"binding\": \"project\",\n        \"editable\": true,\n        \"exists\": true,\n        \"value\": \"string\"\n      },\n      \"type\": \"string\"\n    },\n    \"endpoints\": {\n      \"access\": {\n        \"cache_enabled\": false,\n        \"cache_ttl_ms\": 3968,\n        \"timeout_ms\": 7060,\n        \"url\": \"string\"\n      },\n      \"post\": {\n        \"cache_enabled\": false,\n        \"cache_ttl_ms\": 9670,\n        \"timeout_ms\": 1570,\n        \"url\": \"string\"\n      },\n      \"pre\": {\n        \"cache_enabled\": true,\n        \"cache_ttl_ms\": 6905,\n        \"timeout_ms\": 9190,\n        \"url\": \"string\"\n      }\n    },\n    \"health_check_path\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d48c1b9-0b39-4e1b-a7fa-78abe9a2a879",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"endpoints\": {\n      \"access\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"post\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"pre\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6775b2e-74a9-43ab-ba2b-4e93ea635bee",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"endpoints\": {\n      \"access\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"post\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"pre\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5403ee46-1aef-4280-b0ef-a2f3b12dc55e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plugins",
+                    ":plugin_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "plugin_id",
+                      "description": "(Required) Plugin ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"retry\": {\n    \"backoff\": \"<string>\",\n    \"base_delay_ms\": \"<integer>\",\n    \"enabled\": \"<boolean>\",\n    \"max_attempts\": \"<integer>\",\n    \"retry_on\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"<string>\",\n  \"webhook_config\": {\n    \"auth\": {\n      \"ca_cert\": \"<string>\",\n      \"client_cert\": \"<string>\",\n      \"client_key\": \"<string>\",\n      \"token\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"endpoints\": {\n      \"access\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"post\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      \"pre\": {\n        \"cache_enabled\": \"<boolean>\",\n        \"cache_ttl_ms\": \"<integer>\",\n        \"failure_mode\": \"<string>\",\n        \"phase\": \"<string>\",\n        \"priority\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"timeout_ms\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"health_check_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.arcade.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "aca29f61-d4a8-4655-81d7-5b0e51b7ca00",
+    "name": "Arcade Admin Plugins API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reference Documentation for Arcade Engine API\n\nContact Support:\n Name: Arcade\n Email: contact@arcade.dev",
+      "type": "text/plain"
+    }
+  }
+}
