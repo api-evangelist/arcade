@@ -28,6 +28,16 @@ tags:
   - MCP
   - AI Agents
   - Authorization
+  - Authentication
+  - Tool Calling
+  - Agent Infrastructure
+  - LLM
+  - Integration
+tags_raw:
+  - Agents
+  - MCP
+  - AI Agents
+  - Authorization
   - OAuth
   - Tool Calling
   - Agent Infrastructure
@@ -47,6 +57,10 @@ apis:
   baseURL: https://github.com/ArcadeAI/schemas
   image: https://avatars.githubusercontent.com/u/161780576
   tags:
+  - Schemas
+  - JSON-Schema
+  - Worker Protocol
+  tags_raw:
   - Schemas
   - JSON Schema
   - Worker Protocol
@@ -84,6 +98,11 @@ apis:
   - MCP Server
   - Framework
   - Python
+  - Open-Source
+  tags_raw:
+  - MCP Server
+  - Framework
+  - Python
   - Open Source
   properties:
   - type: GitHubRepository
@@ -104,6 +123,10 @@ apis:
   humanURL: https://docs.arcade.dev/en/resources/integrations
   image: https://avatars.githubusercontent.com/u/161780576
   tags:
+  - Integration
+  - Toolkits
+  - MCP Servers
+  tags_raw:
   - Integrations
   - Toolkits
   - MCP Servers
@@ -539,7 +562,8 @@ apis:
   description: The Operations API from Arcade — 3 operation(s) for operations.
   humanURL: https://docs.arcade.dev/en/references/api
   baseURL: https://api.arcade.dev
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
