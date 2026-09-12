@@ -826,6 +826,8 @@ apis:
   - type: JSONStructure
     url: json-structure/arcade-engine-secret-response-structure.json
 common:
+  - type: Website
+    url: https://www.arcade.dev/
   - type: IssueTracker
     url: https://github.com/ArcadeAI/schemas/issues
   - type: License
