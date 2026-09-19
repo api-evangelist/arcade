@@ -72,7 +72,7 @@ apis:
   baseURL: https://github.com/ArcadeAI/schemas
   image: https://avatars.githubusercontent.com/u/161780576
   tags:
-  - Schemas
+  - Schema
   - JSON-Schema
   - Worker Protocol
   tags_raw:
@@ -140,7 +140,7 @@ apis:
   tags:
   - Integration
   - Toolkits
-  - MCP Servers
+  - MCP Server
   tags_raw:
   - Integrations
   - Toolkits
