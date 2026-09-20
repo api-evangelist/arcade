@@ -38,6 +38,9 @@ accessModel:
   generated: '2026-09-03'
   method: derived
 image: https://avatars.githubusercontent.com/u/161780576
+x-docs-platform: nextra
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-19
 tags:
   - Agents
   - MCP
