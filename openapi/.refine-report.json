@@ -1,0 +1,34 @@
+{
+  "provider": "arcade",
+  "sources": [
+    "arcade-engine-openapi.yml"
+  ],
+  "outputs": [
+    "arcade-admin-api-openapi.yml",
+    "arcade-authorization-api-openapi.yml",
+    "arcade-gateways-api-openapi.yml",
+    "arcade-hooks-api-openapi.yml",
+    "arcade-llm-api-openapi.yml",
+    "arcade-operations-api-openapi.yml",
+    "arcade-plugins-api-openapi.yml",
+    "arcade-tools-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/arcade-engine-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "arcade-engine-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "arcade-engine-openapi.yml: declared missing tag: Admin",
+    "arcade-engine-openapi.yml: declared missing tag: Authorization",
+    "arcade-engine-openapi.yml: declared missing tag: Gateways",
+    "arcade-engine-openapi.yml: declared missing tag: Hooks",
+    "arcade-engine-openapi.yml: declared missing tag: LLM",
+    "arcade-engine-openapi.yml: declared missing tag: Operations",
+    "arcade-engine-openapi.yml: declared missing tag: Plugins",
+    "arcade-engine-openapi.yml: declared missing tag: Tools",
+    "apis.yml register: written (+8 apis, 11 total)"
+  ],
+  "skipped": []
+}
