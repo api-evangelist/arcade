@@ -64,58 +64,51 @@ paths:
                 $ref: '#/components/schemas/schemas.Error'
 components:
   schemas:
-    schemas.ChatMessage:
+    schemas.ResponseFormat:
       type: object
-      required:
-      - content
-      - role
       properties:
-        content:
-          description: The content of the message.
+        type:
+          $ref: '#/components/schemas/schemas.ResponseFormatType'
+    auth.AuthorizationResponse:
+      type: object
+      properties:
+        context:
+          $ref: '#/components/schemas/auth.AuthorizationContext'
+        id:
           type: string
-        name:
-          description: tool Name
+        provider_id:
           type: string
-        role:
-          description: The role of the author of this message. One of system, user, tool, or assistant.
-          type: string
-        tool_call_id:
-          description: tool_call_id
-          type: string
-        tool_calls:
-          description: tool calls if any
+        scopes:
           type: array
           items:
-            $ref: '#/components/schemas/schemas.ModelToolCall'
-    schemas.ResponseFormatType:
-      type: string
-      enum:
-      - json_object
-      - text
-      x-enum-varnames:
-      - ResponseFormatJSON
-      - ResponseFormatText
-    auth.AuthorizationStatus:
-      type: string
-      enum:
-      - not_started
-      - pending
-      - completed
-      - failed
-      x-enum-varnames:
-      - StatusNotStarted
-      - StatusPending
-      - StatusCompleted
-      - StatusFailed
-    schemas.Usage:
+            type: string
+        status:
+          default: pending
+          allOf:
+          - $ref: '#/components/schemas/auth.AuthorizationStatus'
+        url:
+          type: string
+        user_id:
+          type: string
+    schemas.StreamOptions:
       type: object
       properties:
-        completion_tokens:
-          type: integer
-        prompt_tokens:
-          type: integer
-        total_tokens:
-          type: integer
+        include_usage:
+          description: 'If set, an additional chunk will be streamed before the data: [DONE] message.
+
+            The usage field on this chunk shows the token usage statistics for the entire request,
+
+            and the choices field will always be an empty array.
+
+            All other chunks will also include a usage field, but with a null value.'
+          type: boolean
+    schemas.Error:
+      type: object
+      properties:
+        message:
+          type: string
+        name:
+          type: string
     schemas.Choice:
       type: object
       properties:
@@ -134,13 +127,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/schemas.ChatMessage'
-    schemas.Error:
+    auth.AuthorizationContext:
       type: object
       properties:
-        message:
+        token:
           type: string
-        name:
-          type: string
+        user_info:
+          type: object
+          additionalProperties: true
     schemas.ChatResponse:
       type: object
       properties:
@@ -160,6 +154,12 @@ components:
           type: string
         usage:
           $ref: '#/components/schemas/schemas.Usage'
+    schemas.ToolType:
+      type: string
+      enum:
+      - function
+      x-enum-varnames:
+      - ToolTypeFunction
     schemas.ToolFunctionCall:
       type: object
       properties:
@@ -167,26 +167,23 @@ components:
           type: string
         name:
           type: string
-    schemas.StreamOptions:
+    schemas.ResponseFormatType:
+      type: string
+      enum:
+      - json_object
+      - text
+      x-enum-varnames:
+      - ResponseFormatJSON
+      - ResponseFormatText
+    schemas.ModelToolCall:
       type: object
       properties:
-        include_usage:
-          description: 'If set, an additional chunk will be streamed before the data: [DONE] message.
-
-            The usage field on this chunk shows the token usage statistics for the entire request,
-
-            and the choices field will always be an empty array.
-
-            All other chunks will also include a usage field, but with a null value.'
-          type: boolean
-    auth.AuthorizationContext:
-      type: object
-      properties:
-        token:
+        function:
+          $ref: '#/components/schemas/schemas.ToolFunctionCall'
+        id:
           type: string
-        user_info:
-          type: object
-          additionalProperties: true
+        type:
+          $ref: '#/components/schemas/schemas.ToolType'
     schemas.ChatRequest:
       type: object
       properties:
@@ -253,47 +250,50 @@ components:
           type: number
         user:
           type: string
-    auth.AuthorizationResponse:
-      type: object
-      properties:
-        context:
-          $ref: '#/components/schemas/auth.AuthorizationContext'
-        id:
-          type: string
-        provider_id:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-        status:
-          default: pending
-          allOf:
-          - $ref: '#/components/schemas/auth.AuthorizationStatus'
-        url:
-          type: string
-        user_id:
-          type: string
-    schemas.ModelToolCall:
-      type: object
-      properties:
-        function:
-          $ref: '#/components/schemas/schemas.ToolFunctionCall'
-        id:
-          type: string
-        type:
-          $ref: '#/components/schemas/schemas.ToolType'
-    schemas.ToolType:
+    auth.AuthorizationStatus:
       type: string
       enum:
-      - function
+      - not_started
+      - pending
+      - completed
+      - failed
       x-enum-varnames:
-      - ToolTypeFunction
-    schemas.ResponseFormat:
+      - StatusNotStarted
+      - StatusPending
+      - StatusCompleted
+      - StatusFailed
+    schemas.Usage:
       type: object
       properties:
-        type:
-          $ref: '#/components/schemas/schemas.ResponseFormatType'
+        completion_tokens:
+          type: integer
+        prompt_tokens:
+          type: integer
+        total_tokens:
+          type: integer
+    schemas.ChatMessage:
+      type: object
+      required:
+      - content
+      - role
+      properties:
+        content:
+          description: The content of the message.
+          type: string
+        name:
+          description: tool Name
+          type: string
+        role:
+          description: The role of the author of this message. One of system, user, tool, or assistant.
+          type: string
+        tool_call_id:
+          description: tool_call_id
+          type: string
+        tool_calls:
+          description: tool calls if any
+          type: array
+          items:
+            $ref: '#/components/schemas/schemas.ModelToolCall'
   securitySchemes:
     Bearer:
       description: 'Enter your API key or API token in the format: Bearer <token>'

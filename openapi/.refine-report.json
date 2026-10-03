@@ -1,7 +1,7 @@
 {
   "provider": "arcade",
   "sources": [
-    "arcade-engine-openapi.yml"
+    "_original/arcade-engine-openapi.yml"
   ],
   "outputs": [
     "arcade-admin-api-openapi.yml",
@@ -13,12 +13,11 @@
     "arcade-plugins-api-openapi.yml",
     "arcade-tools-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/arcade-engine-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "arcade-engine-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
     "arcade-engine-openapi.yml: declared missing tag: Admin",
     "arcade-engine-openapi.yml: declared missing tag: Authorization",
@@ -28,7 +27,16 @@
     "arcade-engine-openapi.yml: declared missing tag: Operations",
     "arcade-engine-openapi.yml: declared missing tag: Plugins",
     "arcade-engine-openapi.yml: declared missing tag: Tools",
-    "apis.yml register: written (+8 apis, 11 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "arcade-admin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcade-authorization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcade-gateways-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcade-hooks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcade-llm-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcade-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcade-plugins-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcade-tools-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -80,14 +80,6 @@ components:
           $ref: '#/components/schemas/schemas.EngineOAuth2ConfigResponse'
         servers:
           $ref: '#/components/schemas/schemas.EngineServersConfig'
-    schemas.HealthSchema:
-      type: object
-      properties:
-        healthy:
-          type: boolean
-        reason:
-          description: 'Optional: explains why unhealthy'
-          type: string
     schemas.DashboardConfigResponse:
       type: object
       properties:
@@ -101,6 +93,14 @@ components:
       type: object
       properties:
         callback_url_template:
+          type: string
+    schemas.HealthSchema:
+      type: object
+      properties:
+        healthy:
+          type: boolean
+        reason:
+          description: 'Optional: explains why unhealthy'
           type: string
   securitySchemes:
     Bearer:
