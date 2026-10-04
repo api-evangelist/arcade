@@ -66,11 +66,11 @@ paths:
                 additionalProperties: true
 components:
   schemas:
-    schemas.EngineOAuth2ConfigResponse:
+    schemas.EngineServersConfig:
       type: object
       properties:
-        callback_url_template:
-          type: string
+        timeout_max_seconds:
+          type: integer
     schemas.EngineConfigResponse:
       type: object
       properties:
@@ -80,14 +80,10 @@ components:
           $ref: '#/components/schemas/schemas.EngineOAuth2ConfigResponse'
         servers:
           $ref: '#/components/schemas/schemas.EngineServersConfig'
-    schemas.DashboardConfigResponse:
+    schemas.EngineOAuth2ConfigResponse:
       type: object
       properties:
-        authority:
-          type: string
-        clientId:
-          type: string
-        coordinatorUri:
+        callback_url_template:
           type: string
     schemas.HealthSchema:
       type: object
@@ -97,11 +93,15 @@ components:
         reason:
           description: 'Optional: explains why unhealthy'
           type: string
-    schemas.EngineServersConfig:
+    schemas.DashboardConfigResponse:
       type: object
       properties:
-        timeout_max_seconds:
-          type: integer
+        authority:
+          type: string
+        clientId:
+          type: string
+        coordinatorUri:
+          type: string
   securitySchemes:
     Bearer:
       description: 'Enter your API key or API token in the format: Bearer <token>'

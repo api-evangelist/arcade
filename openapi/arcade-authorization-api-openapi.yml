@@ -235,13 +235,16 @@ components:
           type: string
         provider_type:
           type: string
-    auth.OAuth2AuthorizationRequirement:
+    schemas.ValidateCustomVerifierRequest:
       type: object
+      required:
+      - user_id
+      - verifier_url
       properties:
-        scopes:
-          type: array
-          items:
-            type: string
+        user_id:
+          type: string
+        verifier_url:
+          type: string
     auth.AuthorizationStatus:
       type: string
       enum:
@@ -254,22 +257,35 @@ components:
       - StatusPending
       - StatusCompleted
       - StatusFailed
-    schemas.ValidateCustomVerifierResponse:
+    schemas.AuthorizationConfirmUserResponse:
       type: object
+      required:
+      - auth_id
       properties:
-        flow_id:
+        auth_id:
           type: string
         next_uri:
           type: string
-    schemas.ValidateCustomVerifierRequest:
+    auth.AuthorizationContext:
+      type: object
+      properties:
+        token:
+          type: string
+        user_info:
+          type: object
+          additionalProperties: true
+    schemas.AuthorizationInitiationRequest:
       type: object
       required:
+      - auth_requirement
       - user_id
-      - verifier_url
       properties:
-        user_id:
+        auth_requirement:
+          $ref: '#/components/schemas/auth.AuthorizationRequirement'
+        next_uri:
+          description: 'Optional: if provided, the user will be redirected to this URI after authorization'
           type: string
-        verifier_url:
+        user_id:
           type: string
     auth.AuthorizationResponse:
       type: object
@@ -292,29 +308,19 @@ components:
           type: string
         user_id:
           type: string
-    auth.AuthorizationContext:
+    auth.OAuth2AuthorizationRequirement:
       type: object
       properties:
-        token:
-          type: string
-        user_info:
-          type: object
-          additionalProperties: true
+        scopes:
+          type: array
+          items:
+            type: string
     schemas.Error:
       type: object
       properties:
         message:
           type: string
         name:
-          type: string
-    schemas.AuthorizationConfirmUserResponse:
-      type: object
-      required:
-      - auth_id
-      properties:
-        auth_id:
-          type: string
-        next_uri:
           type: string
     schemas.AuthorizationConfirmUserRequest:
       type: object
@@ -326,18 +332,12 @@ components:
           type: string
         user_id:
           type: string
-    schemas.AuthorizationInitiationRequest:
+    schemas.ValidateCustomVerifierResponse:
       type: object
-      required:
-      - auth_requirement
-      - user_id
       properties:
-        auth_requirement:
-          $ref: '#/components/schemas/auth.AuthorizationRequirement'
-        next_uri:
-          description: 'Optional: if provided, the user will be redirected to this URI after authorization'
+        flow_id:
           type: string
-        user_id:
+        next_uri:
           type: string
   securitySchemes:
     Bearer:
