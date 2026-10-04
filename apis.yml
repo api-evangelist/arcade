@@ -655,7 +655,8 @@ apis:
   description: The Operations API from Arcade — 3 operation(s) for operations.
   humanURL: https://docs.arcade.dev/en/references/api
   baseURL: https://api.arcade.dev
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
@@ -951,6 +952,9 @@ apis:
   - type: JSONStructure
     url: json-structure/arcade-engine-secret-response-structure.json
 common:
+  - type: CapabilityMap
+    url: capabilities/arcade-capability-edges.yml
+    name: Arcade Business Capability Map
 
   - type: Portal
     url: https://arcade.dev
