@@ -1,0 +1,33 @@
+slug: arcade
+provider: Arcade
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Authorization
+  spec_file: arcade-authorization-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /v1/auth/authorize  initiate-authorization  Initiate Authorization ... auth.OAuth2AuthorizationRequirement
+  reason: Operations broker per-user OAuth authorization flows and report authorization status — delegated
+    identity/access management as a product function rather than mere API authentication of the caller.
+- tag: LLM
+  spec_file: arcade-llm-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /v1/chat/completions  llm-chat  Language Model Chat
+  reason: A chat-completions endpoint with ChatRequest/ChatResponse/ModelToolCall schemas performs language-model
+    inference, which falls under Artificial Intelligence Management.
